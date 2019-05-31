@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/paket', function(){
     return view('pages.paket');
 });
+
+Route::get('/dashboard', function(){
+    return view('pages.dashboard');
+});
