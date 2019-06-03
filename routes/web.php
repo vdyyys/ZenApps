@@ -23,7 +23,7 @@ Route::get('/dashboard', function(){
     return view('pages.dashboard');
 });
 
-Route::get('/paket/detail', function(){
+Route::get('/paket/detail/nama_paket', function(){
     return view('pages.detail_paket');
 });
 
@@ -31,6 +31,6 @@ Route::get('/notifications', function(){
     return view('pages.notifications');
 });
 
-Route::get('/transactions/detail', function(){
+Route::get('/transactions/detail/id_transaksi', function(){
     return view('pages.detail_transaction');
 });
