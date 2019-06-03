@@ -182,6 +182,12 @@ $user = \Illuminate\Support\Facades\Auth::user();
                       <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('password') }}</strong>
                     @endif
                   </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-unlock-alt" style="margin-top:10px"></i></span>
+                      <input type="password" class="form-control" name="password" placeholder="Konfirmasi Password" required="required" value="{{ old('password') }}">
+                    </div>
+                  </div>
                   <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>
                   <br>
                   <div class="form-group">
