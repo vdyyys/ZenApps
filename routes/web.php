@@ -40,3 +40,7 @@ Route::get('/transaksi/detail', function(){
 Route::get('/pemesanan', function(){
     return view('pages.pemesanan');
 });
+
+Route::get('/pembayaran', function(){
+    return view('pages.pembayaran');
+});
