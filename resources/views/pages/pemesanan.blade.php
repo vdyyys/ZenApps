@@ -8,8 +8,8 @@
             <div class="bg-white" style="margin-top:50px">
                     <br /><br />  
                     <header class="section-header">
-                        <h3 class="title">Detail Transaksi</h3>
-                        <p>No Invoice : EO-2134567890</p>
+                        <h3 class="title">Ambil Paket</h3>
+                        <p>Nama Paket</p>
                     </header>
                     <br /><br />
                     <div class="container">
@@ -17,56 +17,61 @@
                                 <div class="form-group row">
                                     <label for="nama_cust" class="col-sm-6 col-form-label"><b> Nama Pembeli</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Jojo</label>
+                                    <input type="text" class="form-control" id="" name="" placeholder="" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="nama_cust" class="col-sm-6 col-form-label"><b> Nama Pembeli</b></label>
+                                    <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="" name="" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="email" class="col-sm-6 col-form-label"><b> Email</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Jojo@gmail.com</label>
+                                    <input type="text" class="form-control" id="" name="" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="telpon" class="col-sm-6 col-form-label"><b> Nomor Telepon</b></label>
                                     <div class="col-sm-6">
-                                    <label for="" class="col-form-label">+6285811515975</label>
-
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="kode_book" class="col-sm-6 col-form-label"><b> Kode Booking</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Jojo@gmail.com</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="nama_barang" class="col-sm-6 col-form-label"><b> Nama Paket yang Diambil</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Jojo@gmail.com</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="des_pkt" class="col-sm-6 col-form-label"><b>Deskripsi</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">wkwkwkkwkwkwkkwkkwkkw</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tgl_ambil" class="col-sm-6 col-form-label"><b>Tanggal Acara</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">11-01-2019</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="harga_paket" class="col-sm-6 col-form-label"><b>Harga Paket</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Rp. 10.000.000,-</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="harga_paket" class="col-sm-6 col-form-label"><b>Pembayaran</b></label>
                                     <div class="col-sm-6">
-                                        <label for="" class="col-form-label">Transfer</label>
+                                      <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                                     </div>
                                 </div>
                                 <br />

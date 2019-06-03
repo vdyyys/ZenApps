@@ -34,3 +34,7 @@ Route::get('/notifikasi', function(){
 Route::get('/transaksi/detail', function(){
     return view('pages.detail_transaksi');
 });
+
+Route::get('/pemesanan', function(){
+    return view('pages.pemesanan');
+});
