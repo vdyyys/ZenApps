@@ -98,168 +98,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
       </nav>
     </div>
   </header>
-  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-              <div class="modal-header">				
-                <h4 class="modal-title">Sign In</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                @php $error_login = Session::get('error'); @endphp
-                <form action="/login" method="post">
-                {{ csrf_field() }}
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-                      <input type="email" class="form-control" name="email" placeholder="Masukkan No Telp" required="required">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
-                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required">
-                    </div>
-                  </div>
-                  @if (!empty($error))
-                  <div class="form-group">
-                    <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $error }}</strong>
-                  </div>
-                  @endif
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
-                  </div>
-                  <p class="hint-text"><a href="#">Lupa Password?</a></p>
-                </form>
-              </div>
-              <div class="modal-footer">Belum Punya Akun? <a href="#">Daftar di sini</a></div>
-            </div>
-          </div>
-    </div>
-    <div class="modal fade" id="modalRegist" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-              <div class="modal-header">				
-                <h4 class="modal-title">Register</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form action="{{__('/register')}}" method="post">
-                  {{ csrf_field() }}
-                  <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" required="required" value="{{ old('name') }}">
-                      </div>
-                  @if ($errors->first('name'))
-                    <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('name') }}</strong>
-                  @endif
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-envelope" style="margin-top:10px"></i></span>
-                      <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required="required" value="{{ old('email') }}">
-                    </div>
-                    @if ($errors->first('email'))
-                      <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('email') }}</strong>
-                    @endif
-                  </div>
-                  <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-phone" style="margin-top:10px"></i></span>
-                        <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" required="required" value="{{ old('no_telp') }}">
-                      </div>
-                      @if ($errors->first('no_telp'))
-                        <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('no_telp') }}</strong>
-                      @endif
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
-                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required" value="{{ old('password') }}">
-                    </div>
-                    @if ($errors->first('password'))
-                      <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('password') }}</strong>
-                    @endif
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-unlock-alt" style="margin-top:10px"></i></span>
-                      <input placeholder="Konfirmasi Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">                      
-                    </div>
-                  </div>
-                  <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>
-                  <br>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign up</button>
-                  </div>
-                  <div class="modal-footer border-top-0">
-                      <p class="hint-text">Sudah Punya akun? <a href="#"> Sign In</p>
-                  </div>
-                </form>
-              </div>
-            </div>
-        </div>
-    </div>
-    <div id="modalRegistEO" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-login  modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">				
-            <h4 class="modal-title">Buka Event Organizer</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          </div>
-          <div class="modal-body">
-            <form action="{{'/registereo'}}" method="post">
-                {{ csrf_field() }}
-              <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-building fa_color" style="margin-top:10px"></i></span>
-                    <input type="text" class="form-control" name="namaeo" placeholder="Nama EO" required>
-                  </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa_color" style="margin-top:10px"></i></span>
-                  <input type="email" class="form-control" name="emaileo" placeholder="Email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-map fa_color" style="margin-top:10px"></i></span>
-                  <input type="text" class="form-control" name="alamateo" placeholder="Alamat" required>
-                </div>
-              </div>
-              <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-phone fa_color" style="margin-top:10px"></i></span>
-                    <input type="text" class="form-control" name="kontakeo" placeholder="Kontak" required="required">
-                  </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-globe fa_color" style="margin-top:10px"></i></span>
-                  <input type="text" class="form-control" name="linkeo" placeholder="Link (opsional)">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="gambar_profil_eo" accept="image/*" id="gambarprofil" required>
-                  <label class="custom-file-label" for="gambarprofil">Foto Profil</label>
-                </div>
-              </div>            
-              <p class="hint-text"> <a href="#"></a> Dengan Mendaftar, anda telah menyetujui <a href="">Syarat & Ketentuan</a> Kami</p>  
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign up</button>
-              </div>
-              <div class="modal-footer border-top-0">
-                  <p class="hint-text">Sudah Punya akun? <a href="#"> Sign In</p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
+ 
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
@@ -409,6 +248,168 @@ $user = \Illuminate\Support\Facades\Auth::user();
 
     
 
+    <div id="modalRegistEO" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-login  modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">				
+            <h4 class="modal-title">Buka Event Organizer</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form action="{{'/registereo'}}" method="post">
+                {{ csrf_field() }}
+              <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa_color" style="margin-top:10px"></i></span>
+                    <input type="text" class="form-control" name="namaeo" placeholder="Nama EO" required>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa_color" style="margin-top:10px"></i></span>
+                  <input type="email" class="form-control" name="emaileo" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-map fa_color" style="margin-top:10px"></i></span>
+                  <input type="text" class="form-control" name="alamateo" placeholder="Alamat" required>
+                </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-phone fa_color" style="margin-top:10px"></i></span>
+                    <input type="text" class="form-control" name="kontakeo" placeholder="Kontak" required="required">
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-globe fa_color" style="margin-top:10px"></i></span>
+                  <input type="text" class="form-control" name="linkeo" placeholder="Link (opsional)">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="gambar_profil_eo" accept="image/*" id="gambarprofil" required>
+                  <label class="custom-file-label" for="gambarprofil">Foto Profil</label>
+                </div>
+              </div>            
+              <p class="hint-text"> <a href="#"></a> Dengan Mendaftar, anda telah menyetujui <a href="">Syarat & Ketentuan</a> Kami</p>  
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign up</button>
+              </div>
+              <div class="modal-footer border-top-0">
+                  <p class="hint-text">Sudah Punya akun? <a href="#"> Sign In</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+              <div class="modal-header">				
+                <h4 class="modal-title">Sign In</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                @php $error_login = Session::get('error'); @endphp
+                <form action="/login" method="post">
+                {{ csrf_field() }}
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
+                      <input type="email" class="form-control" name="email" placeholder="Masukkan No Telp" required="required">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
+                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required">
+                    </div>
+                  </div>
+                  @if (!empty($error))
+                  <div class="form-group">
+                    <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $error }}</strong>
+                  </div>
+                  @endif
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+                  </div>
+                  <p class="hint-text"><a href="#">Lupa Password?</a></p>
+                </form>
+              </div>
+              <div class="modal-footer">Belum Punya Akun? <a href="#">Daftar di sini</a></div>
+            </div>
+          </div>
+    </div>
+    <div class="modal fade" id="modalRegist" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+              <div class="modal-header">				
+                <h4 class="modal-title">Register</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form action="{{__('/register')}}" method="post">
+                  {{ csrf_field() }}
+                  <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
+                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" required="required" value="{{ old('name') }}">
+                      </div>
+                  @if ($errors->first('name'))
+                    <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('name') }}</strong>
+                  @endif
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope" style="margin-top:10px"></i></span>
+                      <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required="required" value="{{ old('email') }}">
+                    </div>
+                    @if ($errors->first('email'))
+                      <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('email') }}</strong>
+                    @endif
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone" style="margin-top:10px"></i></span>
+                        <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" required="required" value="{{ old('no_telp') }}">
+                      </div>
+                      @if ($errors->first('no_telp'))
+                        <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('no_telp') }}</strong>
+                      @endif
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
+                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required" value="{{ old('password') }}">
+                    </div>
+                    @if ($errors->first('password'))
+                      <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('password') }}</strong>
+                    @endif
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-unlock-alt" style="margin-top:10px"></i></span>
+                      <input placeholder="Konfirmasi Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">                      
+                    </div>
+                  </div>
+                  <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>
+                  <br>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign up</button>
+                  </div>
+                  <div class="modal-footer border-top-0">
+                      <p class="hint-text">Sudah Punya akun? <a href="#"> Sign In</p>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
     <div id="modalRegistEO" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-login  modal-dialog-scrollable">
         <div class="modal-content">
