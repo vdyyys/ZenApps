@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::get('/paket', function(){
     return view('pages.paket');
 });
+
+Route::get('/dashboard', function(){
+    return view('pages.dashboard');
+});
+
+Route::get('/paket/detail', function(){
+    return view('pages.detail_paket');
+});
