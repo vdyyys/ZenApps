@@ -28,7 +28,6 @@ Route::get('/paket/detail', function(){
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/notifications', function(){
     return view('pages.notifications');
