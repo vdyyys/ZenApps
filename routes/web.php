@@ -27,10 +27,10 @@ Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
 
-Route::get('/notifications', function(){
-    return view('pages.notifications');
+Route::get('/notifikasi', function(){
+    return view('pages.notifikasi');
 });
 
-Route::get('/transactions/detail', function(){
-    return view('pages.detail_transaction');
+Route::get('/transaksi/detail', function(){
+    return view('pages.detail_transaksi');
 });
