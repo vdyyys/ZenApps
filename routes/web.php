@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/paket', function(){
-    return view('pages.paket');
+Route::get('/profil/eo', function(){
+    return view('pages.profil_eo');
 });
 
 Route::get('/dashboard', function(){
@@ -29,3 +29,11 @@ Route::get('/paket/detail', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/notifications', function(){
+    return view('pages.notifications');
+});
+
+Route::get('/transactions/detail', function(){
+    return view('pages.detail_transaction');
+});

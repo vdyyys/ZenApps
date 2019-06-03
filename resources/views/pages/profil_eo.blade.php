@@ -17,7 +17,7 @@
                 <div class="row">
                    <div class="col-md-12">
                         <div class="cover-photo" style="background-image: url('img/bg-1.jpg') ;">
-                            <br /><br /><br /><br /><br /><br />
+                            <br /><br />
                             <div class="row">
                                     <div class="col-12 col-lg-4 col-xl-3 order-2 order-lg-1">
                                             <div class="card mb-4">
@@ -61,10 +61,10 @@
                                                             <small class="float-right text-navy">See All</small>                   
                                                             <div class="row no-gutters mt-1">
                                                                 <div class="col-3">
-                                                                    <img src="img/items/cat-1.jpg" class="img-fluid pr-1" alt="Unsplash">
+                                                                    <img src="{{ asset('img/items/cat-1.jpg') }}" class="img-fluid pr-1" alt="Unsplash">
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <img src="img/items/cat-1.jpg" class="img-fluid pl-1" alt="Unsplash">
+                                                                    <img src="{{ asset('img/items/cat-1.jpg') }}" class="img-fluid pl-1" alt="Unsplash">
                                                                 </div>
                                                             </div>
                                                         </div>
