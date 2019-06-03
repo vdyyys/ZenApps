@@ -1,7 +1,3 @@
-@php 
-$user = \Illuminate\Support\Facades\Auth::user();
-@endphp
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,17 +52,18 @@ $user = \Illuminate\Support\Facades\Auth::user();
                 <i style="font-size: 16pt" class="icon fa fa-bell"></i>
               </a>
           </li>
-           <li>
-                <div class="input-group">
-                    <div class="form-group has-search">
-                    <form action="{{url('/search')}}" method="post" id="searchPaket">
-                    {{ csrf_field() }}
-                        <span class="fa fa-glip fa-search form-control-feedback"></span>
-                        <input type="text" class="form-controls form-control" name="paket" placeholder="Cari...">
-                    </form>
-                    </div>
-                </div>
-            </li>
+          <li>
+              <div class="input-group">
+                  <div class="form-group has-search">
+                  <form action="{{url('/search')}}" method="post" id="searchPaket">
+                  {{ csrf_field() }}
+                      <span class="fa fa-glip fa-search form-control-feedback"></span>
+                      <input type="text" class="form-controls form-control" name="paket" placeholder="Cari...">
+                  </form>
+                  </div>
+              </div>
+          </li>
+          
           <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalLogin">LOGIN</a></li> 
           <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegist">REGISTER</a></li>
         </ul>
