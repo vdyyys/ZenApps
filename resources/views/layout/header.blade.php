@@ -27,6 +27,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('css/ui.css')}}" rel="stylesheet">
   <link href="{{asset('css/carousel.css')}}" rel="stylesheet">
   <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
 </head>
@@ -251,39 +252,6 @@
   <script src="{{ asset('lib/isotope/isotope.pkgd.min.js')}}"></script>
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/main.js') }}"></script>
-
-@if ($errors->any())
-  <script>
-      $('#modalRegist').modal('show');
-  </script>
-@endif
-
-@if(!empty($error_login))
-<script>
-$(function() {
-    $('#modalLogin').modal('show');
-});
-</script>
-@endif
-
-<script>
-$('body').keypress(function(e){
-if (e.keyCode == 13)
-{
-    $('#searchPaket').submit();
-}
-});
-</script>
-
-<script>
-  $('#role_as').change(function(){
-    var title = $(this).val();
-      $('#eoModal').modal('show');
-      $('#modalRegist').modal('hide');
-
-  });
-</script>
-
 
 @else
 <!DOCTYPE html>
