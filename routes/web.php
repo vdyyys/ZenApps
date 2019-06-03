@@ -22,3 +22,7 @@ Route::get('/paket', function(){
 Route::get('/dashboard', function(){
     return view('pages.dashboard');
 });
+
+Route::get('/paket/detail', function(){
+    return view('pages.detail_paket');
+});

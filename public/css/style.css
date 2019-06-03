@@ -1190,7 +1190,8 @@ position: inherit;
   .card-body {
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-      padding: 1.25rem
+      padding: 1.25rem;
+      color: black;
   }
   
   .card-title {
@@ -1207,7 +1208,7 @@ position: inherit;
   }
   
   .card-link:hover {
-      text-decoration: none
+      text-decoration: none;
   }
   
   .card-link+.card-link {
@@ -1441,4 +1442,3 @@ position: inherit;
     text-decoration: none;
     color: black;
   }
-  
