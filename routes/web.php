@@ -26,6 +26,8 @@ Route::get('/dashboard', function(){
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
+Auth::routes();
+
 
 Route::get('/notifikasi', function(){
     return view('pages.notifikasi');

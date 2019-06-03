@@ -1,3 +1,7 @@
+@php
+$user = \Illuminate\Support\Facades\Auth::user();
+@endphp
+
 @if(Request::path() == '/')
 <!DOCTYPE html>
 <html lang="en">
@@ -53,34 +57,43 @@
                 <i style="font-size: 16pt" class="icon fa fa-bell"></i>
               </a>
           </li>
-           <li>
-                <div class="input-group">
-                    <div class="form-group has-search">
-                    <form action="{{url('/search')}}" method="post" id="searchPaket">
-                    {{ csrf_field() }}
-                        <span class="fa fa-glip fa-search form-control-feedback"></span>
-                        <input type="text" class="form-controls form-control" name="paket" placeholder="Cari...">
-                    </form>
-                    </div>
-                </div>
-            </li>
-
-            <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalLogin">LOGIN</a></li> 
+          <li>
+              <div class="input-group">
+                  <div class="form-group has-search">
+                  <form action="{{url('/search')}}" method="post" id="searchPaket">
+                  {{ csrf_field() }}
+                      <span class="fa fa-glip fa-search form-control-feedback"></span>
+                      <input type="text" class="form-controls form-control" name="paket" placeholder="Cari...">
+                  </form>
+                  </div>
+              </div>
+          </li>
+          @if($user == null)
+          <!-- ini kalo gak login -->
+          <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalLogin">LOGIN</a></li> 
           <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegist">REGISTER</a></li>
-          <li class="drop-down"><a href="#"><span>EVENT ORGANIZER</span></a>
+          <!-- end -->
+          @elseif($user->isEo())
+          <!-- ini kalo Dia EO -->
+          <li class="drop-down"><a href="#"><span>{{$user->name}}</span></a>
                 <ul>
                   <li><a href="{{ url('/dashboard')}}">Dashboard</a></li>
                   <li><a href="{{ url('/paket') }}">Paket</a></li>
                   <li><a href="{{ url('/logout') }}">Sign Out</a></li>
                 </ul>
           </li>
-          <li class="drop-down"><a href="#"><span>JOJO</span></a>
+          <!-- end -->
+          @else
+          <!-- ini kalo dia login doang -->
+          <li class="drop-down"><a href="#"><span>{{$user->name}}</span></a>
               <ul>
-              <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegistEO">Daftarkan EO</a></li>
+                <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegistEO">Daftarkan EO</a></li>
                 <li><a href="#">Edit Profil</a></li>
                 <li><a href="#">My Order</a></li>
                 <li><a href="{{ url('/logout') }}">Sign Out</a></li>
               </ul>
+          </li>
+          @endif
         </ul>
       </nav>
     </div>
@@ -99,7 +112,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-                      <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telp" required="required">
+                      <input type="email" class="form-control" name="email" placeholder="Masukkan No Telp" required="required">
                     </div>
                   </div>
                   <div class="form-group">
@@ -131,7 +144,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
               <div class="modal-body">
-                <form action="{{url('/register')}}" method="post">
+                <form action="{{__('/register')}}" method="post">
                   {{ csrf_field() }}
                   <div class="form-group">
                       <div class="input-group">
@@ -168,6 +181,12 @@
                     @if ($errors->first('password'))
                       <strong id="error" style="margin-left:10px;color:gray;font-size:10px;">{{ $errors->first('password') }}</strong>
                     @endif
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-unlock-alt" style="margin-top:10px"></i></span>
+                      <input placeholder="Konfirmasi Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">                      
+                    </div>
                   </div>
                   <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>
                   <br>
@@ -327,8 +346,10 @@
                     </div>
                 </div>
             </li>
+          @if($user == null)
           <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalLogin">LOGIN</a></li> 
           <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegist">REGISTER</a></li>
+          @elseif($user->isEo())
           <li class="drop-down"><a href="#"><span>Event Organizer</span></a>
                 <ul>
                   <li><a href="{{ url('/dashboard')}}">Dashboard</a></li>
@@ -336,13 +357,16 @@
                   <li><a href="{{ url('/logout') }}">Sign Out</a></li>
                 </ul>
           </li>
+          @else
           <li class="drop-down"><a href="#"><span>Jojo</span></a>
               <ul>
-              <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegistEO">Daftarkan EO</a></li>
+                <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegistEO">Daftarkan EO</a></li>
                 <li><a href="#">Edit Profil</a></li>
                 <li><a href="#">My Order</a></li>
                 <li><a href="{{ url('/logout') }}">Sign Out</a></li>
               </ul>
+          </li>
+          @endif
         </ul>
       </nav>
     </div>
@@ -382,84 +406,8 @@
         <script src="{{ asset('js/quick-nav.min.js')}}" type="text/javascript"></script>
 @endif
 
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-              <div class="modal-header">				
-                <h4 class="modal-title">Sign In</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form action="" method="post">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-                      <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telp" required="required">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
-                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
-                  </div>
-                  <p class="hint-text"><a href="#">Lupa Password?</a></p>
-                </form>
-              </div>
-              <div class="modal-footer">Belum Punya Akun? <a href="#">Daftar di sini</a></div>
-            </div>
-          </div>
-    </div>
 
-    <div class="modal fade" id="modalRegist" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-              <div class="modal-header">				
-                <h4 class="modal-title">Register</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form action="" method="post">
-                  <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" required="required" value="{{ old('name') }}">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-envelope" style="margin-top:10px"></i></span>
-                      <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required="required" value="{{ old('email') }}">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-phone" style="margin-top:10px"></i></span>
-                        <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" required="required" value="{{ old('no_telp') }}">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
-                      <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required" value="{{ old('password') }}">
-                    </div>
-                  </div>
-                  <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>
-                  <br>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign up</button>
-                  </div>
-                  <div class="modal-footer border-top-0">
-                      <p class="hint-text">Sudah Punya akun? <a href="#"> Sign In</p>
-                  </div>
-                </form>
-              </div>
-            </div>
-        </div>
-    </div>
+    
 
     <div id="modalRegistEO" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-login  modal-dialog-scrollable">
