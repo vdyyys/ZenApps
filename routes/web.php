@@ -26,3 +26,6 @@ Route::get('/dashboard', function(){
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
