@@ -44,3 +44,7 @@ Route::get('/pemesanan', function(){
 Route::get('/pembayaran', function(){
     return view('pages.pembayaran');
 });
+
+Route::get('/mitra', function(){
+    return view('pages.mitra');
+});

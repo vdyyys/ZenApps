@@ -35,81 +35,6 @@ body {
     padding: 0;
   }
   
-  /* Back to top button */
-  
-  .back-to-top {
-    position: fixed;
-    display: none;
-    background: #c11717;
-    color: #fff;
-    width: 44px;
-    height: 44px;
-    text-align: center;
-    line-height: 1;
-    font-size: 16px;
-    border-radius: 50%;
-    right: 15px;
-    bottom: 15px;
-    transition: background 0.5s;
-    z-index: 11;
-  }
-  
-  .back-to-top i {
-    padding-top: 12px;
-    color: #fff;
-  }
-  
-  /* Prelaoder */
-  
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    overflow: hidden;
-    background: #fff;
-  }
-  
-  #preloader:before {
-    content: "";
-    position: fixed;
-    top: calc(50% - 30px);
-    left: calc(50% - 30px);
-    border: 6px solid #f2f2f2;
-    border-top: 6px solid #c11717;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: animate-preloader 1s linear infinite;
-    animation: animate-preloader 1s linear infinite;
-  }
-  
-  @-webkit-keyframes animate-preloader {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes animate-preloader {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-  
   /*--------------------------------------------------------------
   # Top Bar
   --------------------------------------------------------------*/
@@ -454,24 +379,6 @@ body {
     color: #fff;
   }
   
-  .section-header h3 {
-    font-size: 36px;
-    color: #413e66;
-    text-align: center;
-    font-weight: 700;
-    position: relative;
-    font-family: "Montserrat", sans-serif;
-  }
-  
-  .section-header p {
-    text-align: center;
-    margin: auto;
-    font-size: 15px;
-    padding-bottom: 60px;
-    color: #535074;
-    width: 50%;
-  }
-  
   /* Section with background
   --------------------------------*/
   .section-bg {
@@ -479,199 +386,6 @@ body {
   }
   .section-bg2 {
     background: rgb(185, 184, 184);
-  }
-  
-  
-  /* Services Section
-  --------------------------------*/
-  
-  #services {
-    padding: 60px 0 20px 0;
-  }
-  
-  #services .box {
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    margin: 0 10px 20px 30px;
-    background: #fff;
-    height: 130px;
-    width: 150px;
-    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-    transition: all 0.3s ease-in-out;
-    text-align: center;
-  }
-  
-  #services .box:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-  
-  #services .icon {
-    margin: 0 auto 15px auto;
-    padding-top: 12px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-  }
-  
-  #services .icon i {
-    font-size: 36px;
-    line-height: 1;
-  }
-  
-  #services .title {
-    font-weight: 700;
-    margin-bottom: 15px;
-    font-size: 18px;
-  }
-  
-  #services .title a {
-    color: #111;
-  }
-  
-  #services .box:hover .title a {
-    color: #1bb1dc;
-  }
-  
-  #services .description {
-    font-size: 14px;
-    line-height: 28px;
-    margin-bottom: 0;
-    text-align: left;
-  }
-  
-  /* Why Us Section
-  --------------------------------*/
-  
-  #why-us {
-    padding: 60px 0;
-  }
-  
-  #why-us .why-us-content .features {
-    margin: 0 0 15px 0;
-    padding: 0;
-    transition: 0.3s ease-in-out;
-  }
-  
-  #why-us .why-us-content .features i {
-    font-size: 36px;
-    float: left;
-  }
-  
-  #why-us .why-us-content .features h4 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-left: 56px;
-    color: #413e66;
-    margin-bottom: 5px;
-  }
-  
-  #why-us .why-us-content .features p {
-    font-size: 16px;
-    margin-left: 56px;
-    color: #555186;
-  }
-  
-  #why-us .counters {
-    padding-top: 40px;
-  }
-  
-  #why-us .counters span {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 48px;
-    display: block;
-    color: #555186;
-  }
-  #why-us .img-sty{
-    width: 20%;
-    margin-left: 150px;
-  }
-  
-  #why-us .counters p {
-    padding: 0;
-    margin: 0 0 20px 0;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    color: #8a87b6;
-  }
-  
-  /* Call To Action Section
-  --------------------------------*/
-  
-  #call-to-action {
-    background: #2d2b46;
-    background-size: cover;
-    padding: 40px 0;
-  }
-  
-  #call-to-action .cta-title {
-    color: #fff;
-    font-size: 28px;
-    font-weight: 700;
-  }
-  
-  #call-to-action .cta-text {
-    color: #fff;
-  }
-  
-  #call-to-action .cta-btn {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 8px 26px;
-    border-radius: 3px;
-    transition: 0.5s;
-    margin: 10px;
-    border: 3px solid #fff;
-    color: #fff;
-  }
-  
-  #call-to-action .cta-btn:hover {
-    background: #1bb1dc;
-    border: 3px solid #1bb1dc;
-  }
-  
-  /* Clients Section
-  --------------------------------*/
-  
-  #clients {
-    padding: 60px 0;
-  }
-  
-  #clients img {
-    max-width: 80%;
-    opacity: 0.5;
-    transition: 0.3s;
-    padding: 15px 0;
-  }
-  
-  #clients img:hover {
-    opacity: 1;
-  }
-  
-  #clients .owl-nav,
-  #clients .owl-dots {
-    margin-top: 5px;
-    text-align: center;
-  }
-  
-  #clients .owl-dot {
-    display: inline-block;
-    margin: 0 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #ddd;
-  }
-  
-  #clients .owl-dot.active {
-    background-color: #1bb1dc;
   }
   
   #footer {
@@ -1097,4 +811,50 @@ body {
   .trigger-btn {
     display: inline-block;
     margin: 0px auto;
+  }
+
+
+  .section-header h3 {
+    font-size: 36px;
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .section-header p {
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    padding-bottom: 60px;
+    color: #000;
+    width: 50%;
+  }
+
+  .pagination .page-link{
+    display: inline-block;
+    border: 0 !important;
+    font-size: 16px;
+  }
+  .pagination a{
+    color: #000;
+    text-decoration: none;
+  }
+  .pagination .page-link:hover{
+    background-color: #c11717;
+    color: white;
+  }
+  .pagination a.active{
+    background: #c11717;
+    color: white;
+  }
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+  .card-link{
+    color: black;
+  }
+  .card-link:hover{
+    color: black;
+    text-decoration: none;
   }

@@ -1,15 +1,15 @@
 @extends('layout.app')
 @section('content')
 <br><br><br><br>
-<div class="offset-md-2 container">
-    <br><br><br><br><br>
-    <h2>Permintaan Transaksi Anda Disetujui</h1>
-    <h2>Segera lakukan pembayran ke </h1>
-    <p>1234567898675645342</p>
-    <h2>Sejumlah</h2>
-    <p>Rp00000000</p>
-    <h2>sebelum tanggal</h2>
-    <small>(tanggal)</small>
-    <br><br><br><br><br>
+<div class="container">
+    <br><br><br>
+    <div class="d-flex justify-content-center">
+        <h3 class="title text-center">Permintaan Transaksi Anda Disetujui<br><br>
+        Segera lakukan pembayaran DP ke 54675 - 789789 a/n Zenith Revenue<br><br>
+        Rp. 100.000.000,-<br><br>
+        sebelum tanggal 24-07-2020<br><br>
+        </h3>
+    </div>
+    <br><br><br>
 </div>
 @endsection
