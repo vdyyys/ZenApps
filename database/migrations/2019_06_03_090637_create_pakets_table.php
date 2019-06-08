@@ -19,7 +19,7 @@ class CreatePaketsTable extends Migration
             $table->string('gambar_paket');
             $table->string('nama_paket');
             $table->string('kategori');
-            $table->string('available');
+            $table->integer('available');
             $table->text('deskripsi');
             $table->bigInteger('harga_paket');
             $table->timestamps();
