@@ -29,10 +29,22 @@ Route::get('/paket/detail', function(){
 Auth::routes();
 
 
-Route::get('/notifications', function(){
-    return view('pages.notifications');
+Route::get('/notifikasi', function(){
+    return view('pages.notifikasi');
 });
 
-Route::get('/transactions/detail', function(){
-    return view('pages.detail_transaction');
+Route::get('/transaksi/detail', function(){
+    return view('pages.detail_transaksi');
+});
+
+Route::get('/pemesanan', function(){
+    return view('pages.pemesanan');
+});
+
+Route::get('/pembayaran', function(){
+    return view('pages.pembayaran');
+});
+
+Route::get('/mitra', function(){
+    return view('pages.mitra');
 });
