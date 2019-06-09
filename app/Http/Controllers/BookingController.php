@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Paket;
 use App\Eo;
+use App\Booking;
 use Auth;
-class EoController extends Controller
+class BookingController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,7 @@ class EoController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -23,9 +28,11 @@ class EoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($paramIdPaket)
     {
-        // 
+        $paket = Paket::find($paramIdPaket)->first();
+        $eo = Eo::where('id', $paket->id_eo );
+        return view('pages.pemesanan', compact('paket', 'eo'));
     }
 
     /**
@@ -36,18 +43,29 @@ class EoController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $eo = new Eo();
-        $eo->user_id =$user->id;
-        $eo->nama_eo = $request->nama_eo;
-        $eo->email = $request->email;
-        $eo->alamat = $request->alamat;
-        $eo->kontak = $request->kontak;
-        $eo->link = $request->link;
-        $eo->deskripsi = $request->deskripsi;
-        $eo->save();
+        foreach ($request->nama_paket as $pakets ) {
+            $data[] = $pakets;
+        }
+        $lastBooking = App\Booking::orderBy('created_at', 'desc')->first();
+        if (!$lastBooking) {
+            $booking_number = str_pad(0,5,0,STR_PAD_LEFT);
+        }else {
+            $booking_number = str_pad($lastBooking->id - 1,5,0,STR_PAD_LEFT);
+        }
+        $tgl = Carbon\Carbon::now()->format('ym');
         
-        return redirect('/dashboard');
+        $kode_booking = "ZEN".$tgl.$booking_number;
+        $user = Auth::user();
+        $paket = Paket::where('nama_paket', $data[0])->get();
+        $eo = Eo::find($paket[0]->id_eo);
+        $booking = new Booking();
+        $booking->id_eo = $eo->id;
+        $booking->nama_paket = implode(',',$data); 
+        $booking->id_user = $user->id;
+        $booking->kode_booking = $kode_booking;
+        $booking->metode_pembayaran = $request->metode_pembayaran;
+        // $booking->harga_total = $request->harga_total;
+        $booking->save();
     }
 
     /**
@@ -58,9 +76,7 @@ class EoController extends Controller
      */
     public function show($id)
     {
-        $eos = Eo::find($id)->first();
-        $pakets = Paket::where('id_eo', $eos->id)->get();
-        return view('pages.profil_eo', compact('eos', 'pakets')); 
+        //
     }
 
     /**
@@ -96,5 +112,4 @@ class EoController extends Controller
     {
         //
     }
-
 }
