@@ -62,4 +62,4 @@ Route::get('/about', function(){
 //     return view('pages.register');
 // });
 Auth::routes();
-Route::get('/registereo', 'EoController@create');
+Route::resource('eo','EoController');

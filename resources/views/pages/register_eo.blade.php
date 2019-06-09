@@ -8,35 +8,36 @@
 <p class="text-center">(* harus di isi)</p>
 <br><br><br>
 <div class="container">
-    <form  action="" method="post">
+    <form  action="{{route('eo.store')}}" method="post">
+    @csrf
         <div class="form-group">
             <div class="input-group">
-                <input type="text" class="form-control" name="" placeholder="Nama Event Organizer*" required="required">
+                <input type="text" class="form-control" name="nama_eo" placeholder="Nama Event Organizer*" required="required">
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="email" class="form-control" name="" placeholder="Email Event Organizer*" required="required">
+                <input type="email" class="form-control" name="email" placeholder="Email Event Organizer*" required="required">
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="text" class="form-control" name="" placeholder="Alamat Event Organizer*" required="required">
+                <input type="text" class="form-control" name="alamat" placeholder="Alamat Event Organizer*" required="required">
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="number" class="form-control" name="" placeholder="No. Telp Event Organizer*" required="required">
+                <input type="number" class="form-control" name="kontak" placeholder="No. Telp Event Organizer*" required="required">
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="url" class="form-control" name="" placeholder="Website Event Organizer">
+                <input type="text" class="form-control" name="link" placeholder="Website Event Organizer">
             </div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <textarea name="" class="form-control" placeholder="Deskripsi Event Organizer*" required="required"></textarea>
+                <textarea name="deskripsi" class="form-control" placeholder="Deskripsi Event Organizer*" required="required"></textarea>
             </div>
         </div>
         <div class="form-group">
