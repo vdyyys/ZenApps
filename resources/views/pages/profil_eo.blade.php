@@ -81,7 +81,7 @@
                                                                     <article class="">
                                                                         <div class="row">
                                                                             <aside class="col-sm-3">
-                                                                                <div class="img-wrap"><img class="img-wrap" alt="gambar nikana" src="{{ asset('img/paket/weds.jpg') }}"></div>
+                                                                                <div class="img-wrap"><img class="img-wrap" alt="gambar nikana" src="{{ asset('img/paket/weds.jpg') }}" width="100px" height="100px"></div>
                                                                             </aside> 
                                                                             <article class="row-lg-9">
                                                                                 <h4 class="title"> Paket Katering Diet</h4>

@@ -93,11 +93,10 @@ $user = \Illuminate\Support\Facades\Auth::user();
         <li>
             <div class="input-group">
                 <div class="form-group has-search">
-                <form action="{{url('/search')}}" method="post" id="searchPaket">
-                {{ csrf_field() }}
-                    <span class="fa fa-glip fa-search form-control-feedback"></span>
-                    <input type="text" class="form-controls form-control" name="paket" placeholder="Cari...">
-                </form>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-white my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                  </form>
                 </div>
             </div>
         </li>
@@ -201,7 +200,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
             </div>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
           </div>
           <p class="hint-text"><a href="#">Lupa Password?</a></p>
         </form>
