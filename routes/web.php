@@ -46,3 +46,19 @@ Route::get('/pembayaran', function(){
 Route::get('/mitra', function(){
     return view('pages.mitra');
 });
+
+Route::get('/cart', function(){
+    return view('pages.cart');
+});
+
+Route::get('/about', function(){
+    return view('pages.about');
+});
+
+Route::get('/login', function(){
+    return view('pages.login');
+});
+
+Route::get('/register', function(){
+    return view('pages.register');
+});
