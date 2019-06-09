@@ -25,7 +25,7 @@ class EoController extends Controller
      */
     public function create()
     {
-        // 
+        return view('pages.register_eo');
     }
 
     /**
@@ -36,18 +36,28 @@ class EoController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $eo = new Eo();
-        $eo->user_id =$user->id;
-        $eo->nama_eo = $request->nama_eo;
-        $eo->email = $request->email;
-        $eo->alamat = $request->alamat;
-        $eo->kontak = $request->kontak;
-        $eo->link = $request->link;
-        $eo->deskripsi = $request->deskripsi;
-        $eo->save();
-        
-        return redirect('/dashboard');
+        if(!Auth::check()){
+            return redirect('/login');
+        }else {
+            if (Auth::user()->isEo()) {
+                return redirect('/dashboard');
+            }else {
+                $user = Auth::user();
+                $eo = new Eo();
+                $eo->user_id =$user->id;
+                $eo->nama_eo = $request->nama_eo;
+                $eo->email = $request->email;
+                $eo->alamat = $request->alamat;
+                $eo->kontak = $request->kontak;
+                $eo->link = $request->link;
+                $eo->deskripsi = $request->deskripsi;
+                $eo->save();
+                $user->is_eo = 1;
+                $user->save();
+                
+                return redirect('/dashboard');
+            }
+        }
     }
 
     /**

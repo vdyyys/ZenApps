@@ -24,7 +24,6 @@ Route::get('/dashboard', function(){
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
-Auth::routes();
 
 
 Route::get('/notifikasi', function(){
@@ -55,10 +54,12 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-Route::get('/login', function(){
-    return view('pages.login');
-});
+// Route::get('/login', function(){
+//     return view('pages.login');
+// });
 
-Route::get('/register', function(){
-    return view('pages.register');
-});
+// Route::get('/register', function(){
+//     return view('pages.register');
+// });
+Auth::routes();
+Route::get('/registereo', 'EoController@create');

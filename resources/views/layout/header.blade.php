@@ -8,6 +8,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
   <meta charset="utf-8">
   <title>Zen EO - Your Event Solution</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- CSS Libraries -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
@@ -105,7 +106,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
         <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalLogin">LOGIN</a></li> 
         <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegist">REGISTER</a></li>
         @elseif($user->isEo())
-        <li class="drop-down"><a href="#"><span>Event Organizer</span></a>
+        <li class="drop-down"><a href="#"><span>{{App\Eo::where('user_id', $user->id)->first()->nama_eo}} Organizer</span></a>
           <ul>
             <li><a href="{{ url('/dashboard')}}">Dashboard</a></li>
             <li><a href="{{ url('/paket') }}">Paket</a></li>
@@ -113,9 +114,9 @@ $user = \Illuminate\Support\Facades\Auth::user();
           </ul>
         </li>
         @else
-        <li class="drop-down"><a href="#"><span>Jojo</span></a>
+        <li class="drop-down"><a href="#"><span>{{$user->name}}</span></a>
           <ul>
-            <li><a href="" class="trigger-btn" data-toggle="modal" data-target="#modalRegistEO">Daftarkan EO</a></li>
+            <li><a href="{{__('/registereo')}}" class="trigger-btn">Daftarkan EO</a></li>
             <li><a href="#">Edit Profil</a></li>
             <li><a href="#">My Order</a></li>
             <li><a href="{{ url('/logout') }}">Sign Out</a></li>
@@ -136,11 +137,12 @@ $user = \Illuminate\Support\Facades\Auth::user();
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form action="{{route('login')}}" method="post">
+        {{csrf_field()}}
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
-              <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telp" required="required">
+              <input type="text" class="form-control" name="email" placeholder="Masukkan email" required="required">
             </div>
           </div>
           <div class="form-group">
@@ -166,6 +168,58 @@ $user = \Illuminate\Support\Facades\Auth::user();
     <div class="modal-content">
       <div class="modal-header">				
         <h4 class="modal-title">Register</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('register')}}" method="post">
+        {{csrf_field()}}
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user" style="margin-top:10px"></i></span>
+              <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" required="required" value="{{ old('name') }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope" style="margin-top:10px"></i></span>
+              <input type="email" class="form-control" name="email" placeholder="Masukkan Email" required="required" value="{{ old('email') }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-phone" style="margin-top:10px"></i></span>
+              <input type="text" class="form-control" name="no_telp" placeholder="No. Telp" required="required" value="{{ old('no_telp') }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock" style="margin-top:10px"></i></span>
+              <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required="required" value="{{ old('password') }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-unlock-alt" style="margin-top:10px"></i></span>
+              <input type="password" class="form-control" name="password_confirmation" placeholder="Verifikasi Password" required="required" value="{{ old('password') }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+          </div>
+          <p class="hint-text"><a href="#">Lupa Password?</a></p>
+        </form>
+      </div>
+      <div class="modal-footer">Belum Punya Akun? <a href="#">Daftar di sini</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Register EO -->
+<div class="modal fade" id="modalRegistEO" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header">    
+        <h4 class="modal-title">Register Event Organizer</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body">
@@ -201,7 +255,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
             </div>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
           </div>
           <p class="hint-text"><a href="#">Lupa Password?</a></p>
         </form>
@@ -210,5 +264,3 @@ $user = \Illuminate\Support\Facades\Auth::user();
     </div>
   </div>
 </div>
-
-<!-- Modal Register EO -->
