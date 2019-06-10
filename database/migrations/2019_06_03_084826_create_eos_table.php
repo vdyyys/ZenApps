@@ -22,6 +22,7 @@ class CreateEosTable extends Migration
             $table->string('kontak');
             $table->string('link')->nullable();
             $table->string('gambar_profil')->nullable();
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

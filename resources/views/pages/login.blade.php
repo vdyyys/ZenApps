@@ -8,10 +8,11 @@
 <br><br><br>
 <div class="container">
     <div class="form-signin">
-    <form action="" method="post">
+    <form action="{{route('login')}}" method="post">
+    @csrf
         <div class="form-group">
             <div class="input-group">
-                <input type="text" class="form-control" name="no_telp" placeholder="Email" required="required">
+                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
             </div>
         </div>
         <div class="form-group">

@@ -23,11 +23,10 @@
                                             <div class="card mb-4">
                                                 <div class="card-body text-center">
                                                     <img src="{{ asset('img/EO/eo-2.jpg') }}" alt="Jono Organizer" class="img-fluid rounded-circle mb-2 img-circle" width="128" height="128">
-                                                    <h4 class="card-title mb-0">Jono Organizer</h4>
-                                                    <div class="text-muted mb-2">@JonoOrganizer</div>
+                                                    <h4 class="card-title mb-0">{{$eos->nama_eo}}</h4>
+                                                    <div class="text-muted mb-2">{{$eos->email}}</div>
                                                     <hr>
-                                                    <p class="text-justify">Menerima Jasa Event MC, singer, make-up, fotografi, dancer, magcian, model, usher, band. Jakarta, Bandung dan luar kota lainnya. BASE DI JAKARTA
-                                                            MC, Singer, Fotografi, Videographer, Band, DJ, dll</p>
+                                                    <p class="text-justify">{{$eos->deskripsi}}</p>
                                                     <div>
                                                         <a class="btn btn-primary btn-sm" href="#">Hubungi</a>
                                                     </div>
@@ -40,13 +39,13 @@
                                                             <p class="text-muted"><span><i class="fa fa-calendar"></i> 26 Oktober 2011</span></p>
                                                         </li>
                                                         <li class="mb-1">
-                                                            <p class="text-muted"><span><i class="fa fa-location-arrow"></i> Jakarta</span></p>
+                                                            <p class="text-muted"><span><i class="fa fa-location-arrow"></i> {{$eos->alamat}}</span></p>
                                                         </li>
                                                         <li class="mb-1">
-                                                            <p class="text-muted"><span><i class="fa fa-whatsapp"></i> 081315234655</span></p>
+                                                            <p class="text-muted"><span><i class="fa fa-whatsapp"></i> {{$eos->kontak}}</span></p>
                                                         </li>
                                                         <li class="mb-1">
-                                                            <a class="link-to-website" href=""><span><i class="fa fa-globe"></i> www.jono-organizer.com</span></a>
+                                                            <a class="link-to-website" href=""><span><i class="fa fa-globe"></i> {{$eos->link}}</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -74,8 +73,11 @@
                                                     <div class="media">
                                                         <div class="media-body">
                                                             <h3 class="mb-2"><strong>Paket Jono Organizer</strong></h3>
+                                                            @if($user->id == $eos->user_id)
                                                             <button class="btn btn-primary" data-toggle="modal" data-target="#modalTambahPaket"><i class="fa fa-plus white"></i></button>
+                                                            @endif
                                                             <br><br>
+                                                            @foreach($pakets as $p)
                                                             <div class="row">
                                                                 <main class="col-sm-12">
                                                                     <article class="">
@@ -84,17 +86,20 @@
                                                                                 <div class="img-wrap"><img class="img-wrap" alt="gambar nikana" src="{{ asset('img/paket/weds.jpg') }}" width="100px" height="100px"></div>
                                                                             </aside> 
                                                                             <article class="row-lg-9">
-                                                                                <h4 class="title"> Paket Katering Diet</h4>
-                                                                                <h5 class="texts">Rp. 10,-</h5>
-                                                                                <p class="texts"> Cocok untuk Anda yang ingin menurunkan berat badan... </p>
+                                                                                <h4 class="title">{{$p->nama_paket}}</h4>
+                                                                                <h5 class="texts">Rp {{number_format($p->harga_paket)}}</h5>
+                                                                                <p class="texts">{{$p->deskripsi}}</p>
                                                                                 <button class="btn btn-info"><i class="fa fa-info white"></i></button>
+                                                                                @if($user->id == $eos->user_id)
                                                                                 <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditPaket"><i class="fa fa-pencil-square-o white"></i></button>
                                                                                 <button class="btn btn-danger"><i class="fa fa-trash white"></i></button>
+                                                                                @endif
                                                                             </article>
                                                                         </div>
                                                                     </article>
                                                                     <hr>
                                                             </div>
+                                                            @endforeach
 <div id="modalTambahPaket" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

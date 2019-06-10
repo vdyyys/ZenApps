@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/profil/eo', function(){
-    return view('pages.profil_eo');
-});
+Route::get('/profil/{id}','EoController@show');
 
 Route::get('/dashboard', function(){
     return view('pages.dashboard');
@@ -26,7 +24,6 @@ Route::get('/dashboard', function(){
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
-Auth::routes();
 
 
 Route::get('/notifikasi', function(){
@@ -57,14 +54,12 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-Route::get('/login', function(){
-    return view('pages.login');
-});
+// Route::get('/login', function(){
+//     return view('pages.login');
+// });
 
-Route::get('/register', function(){
-    return view('pages.register');
-});
-
-Route::get('/registerEO', function(){
-    return view('pages.register_eo');
-});
+// Route::get('/register', function(){
+//     return view('pages.register');
+// });
+Auth::routes();
+Route::resource('eo','EoController');
