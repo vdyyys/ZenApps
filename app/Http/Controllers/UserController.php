@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-
+use App\Eo;
 class UserController extends Controller
 {
     /**
@@ -14,8 +14,15 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (!Auth::check()) {
+            return view('pages.login');
+        }else{
 
-        return view('pages.dashboard');
+            $user = Auth::user();
+            $eos = Eo::where('user_id', $user->id)->first();
+            
+            return view('pages.dashboard', compact('user','eos'));
+        }
     }
 
     /**

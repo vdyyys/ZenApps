@@ -9,10 +9,11 @@
                 <div class="card-body text-center">
                     <h4>My EO</h4>
                     <img src="{{ asset('img/EO/eo-2.jpg') }}" alt="Jono Organizer" class="img-fluid rounded-circle mb-2 img-circle" width="128" height="128">
-                    <h4 class="card-title mb-0">{$eos->nama_eo}}</h4>
-                    <div class="text-muted mb-2">{$eos->email}}</div>
+                    <h4 class="card-title mb-0">{{$eos->nama_eo}}</h4>
+                    <div class="text-muted mb-2">{{$eos->email}}</div>
                     <hr>
-                    <p class="text-justify">{$eos->deskripsi}}</p>
+                    <p class="text-justify">{{$eos->deskripsi}}</p>
+                    <a href="{{route('eo.show', ['eo'=>$eos->id])}}" class="btn btn-primary ">Lihat Eo</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">

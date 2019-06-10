@@ -17,9 +17,7 @@ Route::get('/', function () {
 
 // Route::get('/profil/{id}','EoController@show');
 
-Route::get('/dashboard', function(){
-    return view('pages.dashboard');
-});
+Route::get('/user', 'UserController@index')->name('user');
 
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
@@ -63,3 +61,4 @@ Route::get('/about', function(){
 // });
 Auth::routes();
 Route::resource('eo','EoController');
+Route::resource('paket', 'PaketController');

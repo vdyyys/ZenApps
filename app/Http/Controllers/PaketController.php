@@ -38,33 +38,30 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         $validator = $this->validate($request, [
-            'gambar_paket' => 'required',
-            'gambar_paket.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'nama_paket' => 'required|min:5',
+            'gambar_paket' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'nama_paket' => 'required',
             'kategori' => 'required',
             'available'=> 'required',
-            'dekripsi' => 'required'
+            'deskripsi' => 'required',
+            'harga_paket' => 'required'
         ]);
         if ($validator) {
             if ($request->hasfile('gambar_paket')) {
-                foreach ($request->file('gambar_paket') as $image ) {
-                    $nama_gambar = $gambar->getClientOriginalName();
-                    $image->move(public_path().'/img/gambar_paket/', $nama_gambar);
-                    $data[] = $nama_gambar;
-                }
+                    $nama_gambar = $request->gambar_paket->getClientOriginalName();
+                    $request->gambar_paket->move(public_path().'/img/gambar_paket/', $nama_gambar);
+                    $user = Auth::user();
+                    $user_eo = Eo::find($user->id);
+                    $pakets = new Paket();
+                    $pakets->id_eo = $user_eo->id;
+                    $pakets->gambar_paket = $nama_gambar;
+                    $pakets->nama_paket = $request->nama_paket;
+                    $pakets->kategori = $request->kategori;
+                    $pakets->available = 1;
+                    $pakets->deskripsi = $request->deskripsi;
+                    $pakets->harga_paket = $request->harga_paket;
+                    $pakets->save();
+                    return redirect('eo/'.str_replace(' ','_',$user_eo->nama_eo));
             }
-            $user = Auth::user();
-            $user_eo = Eo::find($user->id);
-            $pakets = new Paket();
-            $pakets->id_eo = $user_eo->id;
-            $pakets->gambar_paket = implode("|",$data);
-            $pakets->nama_paket = $request->nama_paket;
-            $pakets->kategori = $request->kategori;
-            $pakets->available = 1;
-            $pakets->deskripsi = $request->deskripsi;
-            $pakets->harga_paket = $request->harga_paket;
-            $pakets->save();
-            return redirect('profile/'.str_replace(' ','',$user_eo->nama_eo));
         }else{
             return Redirect::back()->withErrors($validator)->withInput($request->all());
         }

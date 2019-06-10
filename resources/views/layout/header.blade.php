@@ -107,7 +107,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
         @elseif($user->isEo())
         <li class="drop-down"><a href="#"><span>{{App\Eo::where('user_id', $user->id)->first()->nama_eo}} Organizer</span></a>
           <ul>
-            <li><a href="{{ url('/dashboard')}}">Dashboard</a></li>
+            <li><a href="{{ route('user')}}">Dashboard</a></li>
             <li><a href="{{ url('/paket') }}">Paket</a></li>
             <li><a href="{{ url('/logout') }}">Sign Out</a></li>
           </ul>
