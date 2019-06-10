@@ -36,9 +36,6 @@
                                                 <div class="card-body">
                                                     <ul class="list-unstyled mb-0">
                                                         <li class="mb-1">
-                                                            <p class="text-muted"><span><i class="fa fa-calendar"></i> 26 Oktober 2011</span></p>
-                                                        </li>
-                                                        <li class="mb-1">
                                                             <p class="text-muted"><span><i class="fa fa-location-arrow"></i> {{$eos->alamat}}</span></p>
                                                         </li>
                                                         <li class="mb-1">

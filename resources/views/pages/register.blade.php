@@ -8,7 +8,8 @@
 <br><br><br>
 <div class="container">
     <div class="form-signin">
-        <form action="" method="post">
+        <form action="{{route('register')}}" method="post">
+        @csrf
             <div class="form-group">
                 <div class="input-group">
                     <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" required="required" value="{{ old('name') }}">
@@ -31,7 +32,7 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                <input type="password" class="form-control" name="password" placeholder="Verifikasi Password" required="required" value="{{ old('password') }}">
+                <input type="password" class="form-control" name="password_confirmation" placeholder="Verifikasi Password" required="required" value="{{ old('password') }}">
                 </div>
             </div>
             <p class="hint-text">Dengan Mendaftar, anda telah menyetujui <a href="#">Syarat & Kebijakan</a> Kami</p>

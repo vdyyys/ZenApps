@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/profil/{id}','EoController@show');
+// Route::get('/profil/{id}','EoController@show');
 
 Route::get('/dashboard', function(){
     return view('pages.dashboard');

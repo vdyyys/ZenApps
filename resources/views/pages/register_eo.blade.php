@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="number" class="form-control" name="kontak" placeholder="No. Telp Event Organizer*" required="required">
+                <input type="text" class="form-control" name="kontak" placeholder="No. Telp Event Organizer*" required="required">
             </div>
         </div>
         <div class="form-group">

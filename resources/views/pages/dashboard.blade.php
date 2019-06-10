@@ -3,8 +3,19 @@
 <div class="container">
     <div class="page-content">
         <br><br><br><br><br>
+        @if($user->isEo())
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+            <div class="col-lg-3 card mb-4">
+                <div class="card-body text-center">
+                    <h4>My EO</h4>
+                    <img src="{{ asset('img/EO/eo-2.jpg') }}" alt="Jono Organizer" class="img-fluid rounded-circle mb-2 img-circle" width="128" height="128">
+                    <h4 class="card-title mb-0">{$eos->nama_eo}}</h4>
+                    <div class="text-muted mb-2">{$eos->email}}</div>
+                    <hr>
+                    <p class="text-justify">{$eos->deskripsi}}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
                 <div class="dashboard-stat blue">
                     <div class="visual">
                         <i class="fa fa-briefcase fa-icon-medium"></i>
@@ -18,7 +29,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="dashboard-stat red">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
@@ -32,7 +43,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="dashboard-stat green">
                     <div class="visual">
                         <i class="fa fa-group fa-icon-medium"></i>
@@ -47,6 +58,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="row">
             <div class="col-md-6">
                 <div class="portlet light bordered">
