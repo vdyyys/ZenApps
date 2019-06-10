@@ -64,3 +64,7 @@ Route::get('/login', function(){
 Route::get('/register', function(){
     return view('pages.register');
 });
+
+Route::get('/registerEO', function(){
+    return view('pages.register_eo');
+});
