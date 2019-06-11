@@ -23,7 +23,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Backend Android Developer</p>
+                                    <p class="card-text">Backend Android Developer who codes beautifully.</p>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Frontend Android Developer</p>
+                                    <p class="card-text">Frontend Android Developer who really pays attention to the UI and UX.</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Frontend Web Developer</p>
+                                    <p class="card-text">Frontend Web Developer who has a great skill developing beautiful design.</p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Backend Web Developer</p>
+                                    <p class="card-text">Backend Web Developer who has a great ability of simple yet powerful code.</p>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Product Requirements and Research</p>
+                                    <p class="card-text">Product Development and Researching based on customers demand.</p>
                                 </div>
                             </div>
                         </div>
