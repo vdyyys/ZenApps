@@ -13,7 +13,7 @@
                     <div class="text-muted mb-2">{{$eos->email}}</div>
                     <hr>
                     <p class="text-justify">{{$eos->deskripsi}}</p>
-                    <a href="{{route('eo.show', ['eo'=>$eos->id])}}" class="btn btn-primary ">Lihat Eo</a>
+                    <a href="{{route('eo.show', ['eo'=>str_replace(' ','_',$eos->nama_eo)])}}" class="btn btn-primary ">Lihat Eo</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">

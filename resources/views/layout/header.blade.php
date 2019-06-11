@@ -109,7 +109,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
           <ul>
             <li><a href="{{ route('user')}}">Dashboard</a></li>
             <li><a href="{{ url('/paket') }}">Paket</a></li>
-            <li><a href="{{ url('/logout') }}">Sign Out</a></li>
+            <li><a href="#" onclick="document.getElementById('logout-form').submit();">Sign Out</a></li>
           </ul>
         </li>
         @else
@@ -118,13 +118,16 @@ $user = \Illuminate\Support\Facades\Auth::user();
             <li><a href="{{route('eo.create')}}" class="trigger-btn">Daftarkan EO</a></li>
             <li><a href="#">My Profile</a></li>
             <li><a href="#">My Order</a></li>
-            <li><a href="{{ url('/logout') }}">Sign Out</a></li>
+            <li><a href="#" onclick="document.getElementById('logout-form').submit();">Sign Out</a></li>
           </ul>
         </li>
         @endif
       </ul>
     </nav>
   </div>
+  <form style="display:none;" id="logout-form" action="{{route('logout')}}" method="POST">
+    {{csrf_field()}}
+  </form>
 </header>
 
 <!-- Modal Login -->
