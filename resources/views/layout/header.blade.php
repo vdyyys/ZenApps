@@ -30,6 +30,8 @@ $user = \Illuminate\Support\Facades\Auth::user();
   <!-- Specific CSS -->
   @if(Request::path() == '/')
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/carousel.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/fix.css') }}" rel="stylesheet" type="text/css"/>
   @else
     <link href="{{asset('css/measure.css')}}" rel="stylesheet">
   @endif

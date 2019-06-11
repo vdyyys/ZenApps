@@ -147,7 +147,9 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
+  
   transition: all 0.5s;
+  z-index: 997;
   transition: all 0.5s;
   padding: 10px 0;
   position: fixed;
@@ -273,6 +275,7 @@ h6 {
   transition: 0.3s;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
+  text-transform: capitalize;
   font-weight: 600;
 }
 
@@ -1187,8 +1190,7 @@ position: inherit;
   .card-body {
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-      padding: 1.25rem;
-      color: black;
+      padding: 1.25rem
   }
   
   .card-title {
@@ -1205,7 +1207,7 @@ position: inherit;
   }
   
   .card-link:hover {
-      text-decoration: none;
+      text-decoration: none
   }
   
   .card-link+.card-link {
@@ -1433,9 +1435,4 @@ position: inherit;
   .search-icon-wishlist{
     color:#000;
     float: right;
-  }
-
-  .link-to-website:hover{
-    text-decoration: none;
-    color: black;
   }
