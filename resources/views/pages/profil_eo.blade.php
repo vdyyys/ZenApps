@@ -90,7 +90,7 @@
                                                                                 @if($user->id == $eos->user_id)
                                                                                 <button class="btn btn-danger"><i class="fa fa-times"  style="color:white"></i> Tidak Tersedia</button>
                                                                                 <button class="btn btn-primary"><i class="fa fa-check"></i> Tersedia</button>
-                                                                                <button class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Sekarang</button>
+                                                                                <button class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Paket</button>
                                                                                 @endif
                                                                             </article>
                                                                         </div>

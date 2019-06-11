@@ -63,31 +63,16 @@
 						<span class="currency">Rp. 10.000,-</span>
 					</var> 
 				</div>
-				<div class="rating-wrap">
-						<ul class="rating-stars">
-							<li style="width:80%" class="stars-active"> 
-								<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-								<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-								<i class="fa fa-star"></i> 
-							</li>
-							<li>
-								<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-								<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-								<i class="fa fa-star"></i> 
-							</li>
-						</ul>
-				</div>
 				<br />
 				<div class="row">
 						<dt class="col-sm-3">Kategori</dt>
 						<dd class="col-sm-9">Wedding</dd>
-					
-						<dt class="col-sm-3">Status</dt>
-						<dd class="col-sm-9">Available</dd>
+
+						<dt class="col-sm-3">Fasilitas</dt>
+						<dd class="col-sm-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat nisl et magna scelerisque condimentum. Morbi a tincidunt lectus. Maecenas placerat tellus leo. Nunc magna urna, viverra eget tellus eu, volutpat hendrerit turpis. Nunc a libero gravida diam placerat interdum non non mi. Proin pretium vel justo quis vestibulum. Curabitur blandit, orci sit amet gravida gravida, purus risus eleifend metus, lobortis convallis elit dolor a odio. Cras nisi nulla, varius quis ligula at, consequat dapibus sem. Integer at neque imperdiet, fringilla ipsum a, ultrices lorem. Vivamus at vehicula sem. Proin pellentesque tristique pretium. Suspendisse sapien nisi, ullamcorper sodales fringilla vitae, tempus nec mi. Donec dapibus enim eu viverra tincidunt. Praesent ut ex sed purus sagittis pharetra.</dd>
 				</div>
-				<br><br><br>
-					<a href="#" class="btn btn-outline-danger"><i class="fa fa-heart-o"></i>  Favorit</a>
-					<a href="#" class="btn btn-danger">Ambil Penawaran</a>
+				<br>
+					<a href="#" class="btn btn-danger"><i class="fa fa-shopping-basket"></i> Pesan Paket</a>
 			</article> 
 		</div> 
 	</div>
@@ -131,7 +116,7 @@
 											</a>
 											<div class="media-body">
 													<h4>little things</h4>
-													<a href="#" class="btn btn-danger"><i class="	far fa-comment"></i> Kontak</a>
+													<a href="#" class="btn btn-danger"><i class="fa fa-comment"></i> Kontak</a>
 											</div>
 									</div>
 									</div>
