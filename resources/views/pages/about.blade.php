@@ -119,7 +119,7 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <p class="card-text">Product Development and Researching based on customers demand.</p>
+                                    <p class="card-text">Product Development and Researching based on customers</p>
                                 </div>
                             </div>
                         </div>
