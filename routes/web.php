@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/', 'IndexController@index');
 
 // Route::get('/profil/{id}','EoController@show');
 
@@ -22,7 +20,6 @@ Route::get('/user', 'UserController@index')->name('user');
 Route::get('/paket/detail', function(){
     return view('pages.detail_paket');
 });
-
 
 Route::get('/notifikasi', function(){
     return view('pages.notifikasi');
@@ -52,13 +49,6 @@ Route::get('/about', function(){
     return view('pages.about');
 });
 
-// Route::get('/login', function(){
-//     return view('pages.login');
-// });
-
-// Route::get('/register', function(){
-//     return view('pages.register');
-// });
 Auth::routes();
 Route::resource('eo','EoController');
 Route::resource('paket', 'PaketController');
