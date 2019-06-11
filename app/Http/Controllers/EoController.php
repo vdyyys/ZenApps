@@ -40,7 +40,7 @@ class EoController extends Controller
             return redirect('/login');
         }else {
             if (Auth::user()->isEo()) {
-                return redirect('/dashboard');
+                return redirect('/user');
             }else {
                 $user = Auth::user();
                 $eo = new Eo();
@@ -55,7 +55,7 @@ class EoController extends Controller
                 $user->is_eo = 1;
                 $user->save();
                 
-                return redirect('/dashboard');
+                return redirect('/user');
             }
         }
     }
