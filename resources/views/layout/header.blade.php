@@ -82,12 +82,12 @@ $user = \Illuminate\Support\Facades\Auth::user();
         <li><a href="{{ url('/about')}}">Tentang</a></li>
         <li><a href="{{ url('/mitra') }}">Mitra EO</a></li>
         <li>
-            <a href="#" class="widget-header mr-3">
+            <a href="{{ url('/cart')}}" class="widget-header mr-3">
               <i style="font-size: 16pt" class="icon fa fa-shopping-basket"></i>
             </a>
         </li>
         <li>
-            <a href="#" class="widget-header mr-3">
+            <a href="{{ url('/notifikasi') }}" class="widget-header mr-3">
               <i style="font-size: 16pt" class="icon fa fa-bell"></i>
             </a>
         </li>

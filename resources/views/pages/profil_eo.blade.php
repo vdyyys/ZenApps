@@ -69,7 +69,7 @@
                                                     <hr>
                                                     <div class="media">
                                                         <div class="media-body">
-                                                            <h3 class="mb-2"><strong>Paket Jono Organizer</strong></h3>
+                                                            <h3 class="mb-2"><strong>Paket</strong></h3>
                                                             @if($user->id == $eos->user_id)
                                                             <button class="btn btn-primary" data-toggle="modal" data-target="#modalTambahPaket"><i class="fa fa-plus white"></i></button>
                                                             @endif
@@ -86,10 +86,11 @@
                                                                                 <h4 class="title">{{$p->nama_paket}}</h4>
                                                                                 <h5 class="texts">Rp {{number_format($p->harga_paket)}}</h5>
                                                                                 <p class="texts">{{$p->deskripsi}}</p>
-                                                                                <button class="btn btn-info"><i class="fa fa-info white"></i></button>
+                                                                                <button class="btn btn-info"><i class="fa fa-info white"></i> Info</button>
                                                                                 @if($user->id == $eos->user_id)
-                                                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditPaket"><i class="fa fa-pencil-square-o white"></i></button>
-                                                                                <button class="btn btn-danger"><i class="fa fa-trash white"></i></button>
+                                                                                <button class="btn btn-danger"><i class="fa fa-times"  style="color:white"></i> Tidak Tersedia</button>
+                                                                                <button class="btn btn-primary"><i class="fa fa-check"></i> Tersedia</button>
+                                                                                <button class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Sekarang</button>
                                                                                 @endif
                                                                                 <a href="" class="btn btn-success">Pesan Sekarang</a>
                                                                             </article>
