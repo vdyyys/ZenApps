@@ -80,7 +80,7 @@
                                                                     <article class="">
                                                                         <div class="row">
                                                                             <aside class="col-sm-3">
-                                                                                <div class="img-wrap"><img class="img-wrap" alt="gambar nikana" src="{{ asset('img/paket/weds.jpg') }}" width="100px" height="100px"></div>
+                                                                                <div class="img-wrap"><img class="img-wrap" alt="{{$p->gambar_paket}}" src="{{ asset('img/gambar_paket/'.$p->gambar_paket) }}" width="100px" height="100px"></div>
                                                                             </aside> 
                                                                             <article class="row-lg-9">
                                                                                 <h4 class="title">{{$p->nama_paket}}</h4>
@@ -91,6 +91,7 @@
                                                                                 <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditPaket"><i class="fa fa-pencil-square-o white"></i></button>
                                                                                 <button class="btn btn-danger"><i class="fa fa-trash white"></i></button>
                                                                                 @endif
+                                                                                <a href="" class="btn btn-success">Pesan Sekarang</a>
                                                                             </article>
                                                                         </div>
                                                                     </article>

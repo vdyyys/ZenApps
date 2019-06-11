@@ -50,7 +50,7 @@ class PaketController extends Controller
                     $nama_gambar = $request->gambar_paket->getClientOriginalName();
                     $request->gambar_paket->move(public_path().'/img/gambar_paket/', $nama_gambar);
                     $user = Auth::user();
-                    $user_eo = Eo::find($user->id);
+                    $user_eo = Eo::where('user_id', $user->id)->first();
                     $pakets = new Paket();
                     $pakets->id_eo = $user_eo->id;
                     $pakets->gambar_paket = $nama_gambar;
@@ -116,13 +116,20 @@ class PaketController extends Controller
         //
     }
 
-    public function changeAvailability($id)
+    public function removeAvailability($id)
     {
         $pakets = Paket::find($id);
         $pakets->available = 0;
         $pakets->save();
         
         return redirect('dashboard');
+    }
+    public function addAvailability($id)
+    {
+        $pakets = Paket::find($id);
+        $pakets->available = 1;
+        $pakets->save();
+        return redirect
     }
 
 }
