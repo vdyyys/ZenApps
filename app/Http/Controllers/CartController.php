@@ -17,15 +17,15 @@ class CartController extends Controller
      */
     public function index()
     {
+        // return view('pages.cart');
         if (!Auth::check()) {
             return redirect()->route('login');
         }else{
             $user = Auth::user();
             $carts = Cart::where('id_user', $user->id)->get();
             foreach ($carts as $cart ) {
-                $pakets  = Paket::where('id',$cart->id_paket)->get();
-                $eos = Eo::where('id', $cart->id_eo)->get();
-                return view('pages.cart', compact('eos','paket'));
+                $pakets = Paket::where('id', $cart->id_paket)->get();
+                return view('pages.cart', compact('pakets'));
             }
         }
     }
@@ -52,7 +52,7 @@ class CartController extends Controller
         return view('pages.login');
       }else {
         $user = Auth::user();
-        $paket = Paket::where('nama_paket',$nama_paket)->first();
+        $paket = Paket::where('nama_paket',str_replace('_',' ',$nama_paket))->first();
         $eo = Eo::where('id',$paket->id_eo)->first();
         $cart = new Cart();
         $cart->id_paket = $paket->id;

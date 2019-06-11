@@ -94,11 +94,12 @@
                                                                                     <button onclick="document.getElementById('addAvailability').submit();" class="btn btn-primary"><i class="fa fa-check"></i> Tambah Ketersediaan</button>
                                                                                     @endif
                                                                                 @else
-                                                                                <button class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Sekarang</button>
+                                                                                <button onclick="document.getElementById('addToCart').submit();" class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Sekarang</button>
                                                                                 @endif
                                                                             </article>
                                                                             <form id="addAvailability" style="display:none;" action="{{route('paket.add',['id'=> $p->id])}}" method="POST">{{csrf_field()}}</form>
                                                                             <form id="removeAvailability" style="display:none;" action="{{route('paket.remove',['id'=> $p->id])}}" method="POST">{{csrf_field()}}</form>
+                                                                            <form id="addToCart" style="display:none;" action="{{route('cart.store', ['nama_paket' => str_replace(' ','_',$p->nama_paket)])}}" method="POST">{{csrf_field()}}</form>
                                                                         </div>
                                                                     </article>
                                                                     <hr>
