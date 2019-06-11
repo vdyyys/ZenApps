@@ -88,12 +88,17 @@
                                                                                 <p class="texts">{{$p->deskripsi}}</p>
                                                                                 <button class="btn btn-info"><i class="fa fa-info white"></i> Info</button>
                                                                                 @if($user->id == $eos->user_id)
-                                                                                <button class="btn btn-danger"><i class="fa fa-times"  style="color:white"></i> Tidak Tersedia</button>
-                                                                                <button class="btn btn-primary"><i class="fa fa-check"></i> Tersedia</button>
+                                                                                    @if($p->available == 1)
+                                                                                    <button onclick="document.getElementById('removeAvailability').submit();" class="btn btn-danger"><i class="fa fa-times"  style="color:white"></i> Hapus Ketersediaan</button>
+                                                                                    @else
+                                                                                    <button onclick="document.getElementById('addAvailability').submit();" class="btn btn-primary"><i class="fa fa-check"></i> Tambah Ketersediaan</button>
+                                                                                    @endif
+                                                                                @else
                                                                                 <button class="btn btn-outline-danger"><i class="fa fa-shopping-basket"></i> Pesan Sekarang</button>
                                                                                 @endif
-                                                                                <a href="" class="btn btn-success">Pesan Sekarang</a>
                                                                             </article>
+                                                                            <form id="addAvailability" style="display:none;" action="{{route('paket.add',['id'=> $p->id])}}" method="POST">{{csrf_field()}}</form>
+                                                                            <form id="removeAvailability" style="display:none;" action="{{route('paket.remove',['id'=> $p->id])}}" method="POST">{{csrf_field()}}</form>
                                                                         </div>
                                                                     </article>
                                                                     <hr>

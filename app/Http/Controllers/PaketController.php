@@ -121,15 +121,16 @@ class PaketController extends Controller
         $pakets = Paket::find($id);
         $pakets->available = 0;
         $pakets->save();
-        
-        return redirect('dashboard');
+        $eo = Eo::find($pakets->id_eo);
+        return redirect('eo/'.str_replace(' ','_',$eo->nama_eo));
     }
     public function addAvailability($id)
     {
         $pakets = Paket::find($id);
         $pakets->available = 1;
         $pakets->save();
-        return redirect
+        $eo = Eo::find($pakets->id_eo);
+        return redirect('eo/'.str_replace(' ','_',$eo->nama_eo));
     }
 
 }
