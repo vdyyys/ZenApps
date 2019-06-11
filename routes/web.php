@@ -64,3 +64,5 @@ Route::resource('eo','EoController');
 Route::resource('paket', 'PaketController');
 Route::post('/paket/{paket}/removeAvailability', ['as'=>'paket.remove', 'uses'=> 'PaketController@removeAvailability']);
 Route::post('/paket/{paket}/addAvailability', ['as'=>'paket.add', 'uses'=> 'PaketController@addAvailability']);
+
+Route::resource('cart','CartController');
