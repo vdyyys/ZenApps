@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Paket;
 use App\Eo;
+use App\Cart;
+use App\Paket;
 use Auth;
-class EoController extends Controller
+class CartController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +17,23 @@ class EoController extends Controller
      */
     public function index()
     {
-        
+        // return view('pages.cart');
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }else{
+            $user = Auth::user();
+            $carts = Cart::where('id_user', $user->id)->get();
+            if($carts->count() != 0)
+            {
+                foreach ($carts as $cart ) {
+                    $pakets = Paket::where('id', $cart->id_paket)->get();
+                    return view('pages.cart', compact('pakets'));
+                }
+            }else {
+                $pakets = [];
+                return view('pages.cart', compact('pakets'));
+            }
+        }
     }
 
     /**
@@ -25,7 +43,7 @@ class EoController extends Controller
      */
     public function create()
     {
-        return view('pages.register_eo');
+        //
     }
 
     /**
@@ -34,30 +52,21 @@ class EoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $nama_paket)
     {
-        if(!Auth::check()){
-            return redirect('/login');
-        }else {
-            if (Auth::user()->isEo()) {
-                return redirect('/user');
-            }else {
-                $user = Auth::user();
-                $eo = new Eo();
-                $eo->user_id =$user->id;
-                $eo->nama_eo = $request->nama_eo;
-                $eo->email = $request->email;
-                $eo->alamat = $request->alamat;
-                $eo->kontak = $request->kontak;
-                $eo->link = $request->link;
-                $eo->deskripsi = $request->deskripsi;
-                $eo->save();
-                $user->is_eo = 1;
-                $user->save();
-                
-                return redirect('/user');
-            }
-        }
+      if (!Auth::check()) {
+        return view('pages.login');
+      }else {
+        $user = Auth::user();
+        $paket = Paket::where('nama_paket',str_replace('_',' ',$nama_paket))->first();
+        $eo = Eo::where('id',$paket->id_eo)->first();
+        $cart = new Cart();
+        $cart->id_paket = $paket->id;
+        $cart->id_user = $user->id;
+        $cart->id_eo = $eo->id;
+        $cart->save();
+        return redirect()->route('cart');
+      }
     }
 
     /**
@@ -66,12 +75,9 @@ class EoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($eo)
+    public function show($id)
     {
-        $user = Auth::user();
-        $eos = Eo::where('nama_eo', str_replace('_',' ',$eo))->first();
-        $pakets = Paket::where('id_eo', $eos->id)->get();
-        return view('pages.profil_eo', compact('user','eos', 'pakets')); 
+        //
     }
 
     /**
@@ -107,5 +113,4 @@ class EoController extends Controller
     {
         //
     }
-
 }
