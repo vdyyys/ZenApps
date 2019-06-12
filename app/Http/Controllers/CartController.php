@@ -23,8 +23,14 @@ class CartController extends Controller
         }else{
             $user = Auth::user();
             $carts = Cart::where('id_user', $user->id)->get();
-            foreach ($carts as $cart ) {
-                $pakets = Paket::where('id', $cart->id_paket)->get();
+            if($carts->count() != 0)
+            {
+                foreach ($carts as $cart ) {
+                    $pakets = Paket::where('id', $cart->id_paket)->get();
+                    return view('pages.cart', compact('pakets'));
+                }
+            }else {
+                $pakets = [];
                 return view('pages.cart', compact('pakets'));
             }
         }
