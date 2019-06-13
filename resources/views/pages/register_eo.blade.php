@@ -27,6 +27,11 @@
         </div>
         <div class="form-group">
             <div class="input-group">
+                <input name="kota" class="form-control" placeholder="Kota*" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
                 <input type="text" class="form-control" name="kontak" placeholder="No. Telp Event Organizer*" required="required">
             </div>
         </div>

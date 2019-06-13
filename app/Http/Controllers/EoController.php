@@ -48,6 +48,7 @@ class EoController extends Controller
                 $eo->nama_eo = $request->nama_eo;
                 $eo->email = $request->email;
                 $eo->alamat = $request->alamat;
+                $eo->kota = $request->kota;
                 $eo->kontak = $request->kontak;
                 $eo->link = $request->link;
                 $eo->deskripsi = $request->deskripsi;
