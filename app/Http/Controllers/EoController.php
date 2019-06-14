@@ -15,7 +15,8 @@ class EoController extends Controller
      */
     public function index()
     {
-        
+        $eo = Eo::all();
+        return view('pages.mitra', compact('eo'));   
     }
 
     /**
@@ -25,7 +26,11 @@ class EoController extends Controller
      */
     public function create()
     {
-        return view('pages.register_eo');
+        if(!Auth::check()){
+            return view('pages.login');
+        }else{
+            return view('pages.register_eo');
+        }
     }
 
     /**

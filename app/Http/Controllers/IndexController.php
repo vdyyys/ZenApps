@@ -9,8 +9,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $eo = Eo::inRandomOrder()->take(4)->get();
-        //$nama_eo =$eo[0]->nama_eo;
+        $eo = Eo::inRandomOrder()->limit(4)->get();
+        // return $eo;
         return view('pages.index', compact('eo'));
     }
 }

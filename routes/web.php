@@ -37,10 +37,6 @@ Route::get('/pembayaran', function(){
     return view('pages.pembayaran');
 });
 
-Route::get('/mitra', function(){
-    return view('pages.mitra');
-});
-
 Route::get('/cart', function(){
     return view('pages.cart');
 });
