@@ -10,7 +10,7 @@
     @foreach ($eo as $eo)
     <div class="col-md-3 mb-4">
         <div class="card h-100">
-            <a class="card-link" href="{{ url('/profil/eo') }}">
+            <a class="card-link" href="{{ route('eo.show', str_replace(' ', '_', $eo->nama_eo)) }}">
                 <img class="card-img-top" src="{{ asset('img/EO/mama.jpg') }}" alt="Card image cap">
                 <div class="card-body">
                     <h3 class="card-title">{{$eo->nama_eo}}</h3><br>

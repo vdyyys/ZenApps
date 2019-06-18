@@ -70,8 +70,12 @@
                                             <div class="media">
                                                 <div class="media-body">
                                                     <h3 class="mb-2"><strong>Paket</strong></h3>
-                                                    @if($user->id == $eos->user_id)
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalTambahPaket"><i class="fa fa-plus white"></i></button>
+                                                    @if($user != null)
+                                                        @if($user->id == $eos->user_id)
+                                                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalTambahPaket"><i class="fa fa-plus white"></i></button>
+                                                        @endif
+                                                    @else
+                                                    
                                                     @endif
                                                     <br><br>
                                                     @foreach($pakets as $p)

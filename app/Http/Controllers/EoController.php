@@ -74,7 +74,12 @@ class EoController extends Controller
      */
     public function show($eo)
     {
-        $user = Auth::user();
+        if (!Auth::check()) {
+            $user = null;
+        }else {
+            $user = Auth::user();
+        }
+        
         $eos = Eo::where('nama_eo', str_replace('_',' ',$eo))->first();
         $pakets = Paket::where('id_eo', $eos->id)->get();
         return view('pages.profil_eo', compact('user','eos', 'pakets')); 
