@@ -27,11 +27,13 @@ class CartController extends Controller
             {
                 foreach ($carts as $cart ) {
                     $pakets = Paket::where('id', $cart->id_paket)->get();
-                    return view('pages.cart', compact('pakets'));
+                    $harga_total = array_sum($pakets->harga_paket);
+                    return view('pages.cart', compact('pakets', 'harga_total'));
                 }
             }else {
                 $pakets = [];
-                return view('pages.cart', compact('pakets'));
+                $harga_total = 0;
+                return view('pages.cart', compact('pakets', 'harga_total'));
             }
         }
     }
