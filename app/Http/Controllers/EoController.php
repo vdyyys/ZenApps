@@ -19,7 +19,8 @@ class EoController extends Controller
      */
     public function index()
     {
-        
+        $eo = Eo::all();
+        return view('pages.mitra', compact('eo'));   
     }
 
     /**
@@ -29,7 +30,11 @@ class EoController extends Controller
      */
     public function create()
     {
-        return view('pages.register_eo');
+        if(!Auth::check()){
+            return view('pages.login');
+        }else{
+            return view('pages.register_eo');
+        }
     }
 
     /**
@@ -52,6 +57,7 @@ class EoController extends Controller
                 $eo->nama_eo = $request->nama_eo;
                 $eo->email = $request->email;
                 $eo->alamat = $request->alamat;
+                $eo->kota = $request->kota;
                 $eo->kontak = $request->kontak;
                 $eo->link = $request->link;
                 $eo->deskripsi = $request->deskripsi;
@@ -72,7 +78,12 @@ class EoController extends Controller
      */
     public function show($eo)
     {
-        $user = Auth::user();
+        if (!Auth::check()) {
+            $user = null;
+        }else {
+            $user = Auth::user();
+        }
+        
         $eos = Eo::where('nama_eo', str_replace('_',' ',$eo))->first();
         $pakets = Paket::where('id_eo', $eos->id)->get();
         return view('pages.profil_eo', compact('user','eos', 'pakets')); 

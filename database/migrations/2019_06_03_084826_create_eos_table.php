@@ -19,6 +19,7 @@ class CreateEosTable extends Migration
             $table->string('nama_eo');
             $table->string('email');
             $table->text('alamat');
+            $table->string('kota');
             $table->string('kontak');
             $table->string('link')->nullable();
             $table->string('gambar_profil')->nullable();
