@@ -12,7 +12,7 @@ class pesanTableSeeder extends Seeder
      */
     public function run()
     {
-        Pesan::create(['pesan' => 'Pesanan anda sedang di proses']);
+        Pesan::create(['pesan' => 'Booking anda sedang di proses, sedang menunggu proses approval dari pihak Event Organizer']);
         Pesan::create(['pesan' => 'Anda mendapat pesanan dari']);
         Pesan::create(['pesan' => 'Pesanan anda mendapat persetujuan']);
         Pesan::create(['pesan' => 'Mohon maaf, pesanan anda tidak mendapat persetujuan dikarenakan perbedaan kesepakatan tanggal']);
