@@ -134,7 +134,7 @@
                         <div class="thumb-content">
                           <h4>{{$eo->nama_eo}}</h4>									
                           <p class="item-price"><i class="fa fa-map-marker"></i> <b>{{$eo->kota}}</b></p>
-                          <a href="#" class="btn btn-primary">Lihat Profil</a>
+                          <a href="{{ route('eo.show', str_replace(' ', '_', $eo->nama_eo)) }}" class="btn btn-primary">Lihat Profil</a>
                         </div>						
                       </div>
                     </div>

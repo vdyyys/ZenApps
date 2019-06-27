@@ -82,7 +82,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
     <nav class="main-nav float-right d-none d-lg-block">
       <ul>
         <li><a href="{{ url('/about')}}">Tentang</a></li>
-        <li><a href="{{ url('/mitra') }}">Mitra EO</a></li>
+        <li><a href="{{ url('/eo') }}">Mitra EO</a></li>
         <li>
             <a href="{{ url('/cart')}}" class="widget-header mr-3">
               <i style="font-size: 16pt" class="icon fa fa-shopping-basket"></i>
