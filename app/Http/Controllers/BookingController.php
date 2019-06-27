@@ -8,6 +8,8 @@ use App\Eo;
 use App\Booking;
 use Auth;
 use Carbon\Carbon;
+use App\Notifikasi;
+use App\Pesan;
 class BookingController extends Controller
 {
     function __construct()
@@ -73,6 +75,11 @@ class BookingController extends Controller
             $booking->harga_total = $request->harga_total;
             $booking->tanggal_pelaksanaan = $request->tanggal_pelaksanaan;
             $booking->save();
+            $notifikasi = new Notifikasi();
+            $notifikasi->id_sender = $user->id;
+            $notifikasi->id_receiver = $eo->user_id;
+            $notifikasi->id_psean = 2; 
+
             return redirect()->route('transaction.index');
         }
     }
