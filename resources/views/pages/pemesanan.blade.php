@@ -27,24 +27,24 @@
                             <input type="text" readonly class="form-control" id="tgl_ambil" name="nama_eo" placeholder="" value="{{$eo->nama_eo}}">
                         </div>
                     </div>
-                    @foreach($nama_paket as $np)
+                    @foreach($nama_pakets as $np)
                     <div class="form-group row">
                         <label for="harga_paket" class="col-sm-6 col-form-label"><b>Nama Paket Yang di pesan</b></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="nama_paket[]" placeholder="" value="{{$np}}">
+                            <input readonly type="text" class="form-control" id="tgl_ambil" name="nama_paket[]" placeholder="" value="{{$np}}">
                         </div>
                     </div>
                     @endforeach
                     <div class="form-group row">
-                        <label for="des_pkt" class="col-sm-6 col-form-label"><b>Harga Total</b></label>
+                        <label for="des_pkt" class="col-sm-6 col-form-label"><b>Harga Total (IDR)</b></label>
                         <div class="col-sm-6">
-                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="{{$harga_total}}">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_total" placeholder="" value="{{$harga_total}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="tgl_ambil" class="col-sm-6 col-form-label"><b>Tanggal Acara</b></label>
                         <div class="col-sm-6">
-                            <input type="date" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <input type="date" class="form-control" id="tgl_ambil" name="tanggal_pelaksanaan" >
                         </div>
                     </div>
                     <div class="form-group row">

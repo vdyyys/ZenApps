@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Zenue - Your Event Solutions</title>
 
-    <link rel="stylesheet" href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/lightbox/css/lightbox.min.css') }}">
+    <link rel="stylesheet" href="{{asset('abouts/lib/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/lib/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/lib/lightbox2/css/lightbox.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('img/icon/ze.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/fontastic.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <link rel="stylesheet" href="lib/wow/css/animate.css">
+    <link rel="shortcut icon" href="{{asset('abouts/img/icon/ze.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('abouts/css/fontastic.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('abouts/lib/wow/css/animate.css')}}">
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a href="index.php" class="navbar-brand"> <img src="img/logozen.svg" alt="zenue" class="img-fluid"></a>
+                <a href="/" class="navbar-brand"> <img src="{{asset('abouts/img/logozen.svg')}}" alt="zenue" class="img-fluid"></a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
                     <i style="font-size: 20px;" class="fa fa-bars ml-2"></i>
                 </button>
@@ -51,11 +50,11 @@
                         </div>
                     </div>
                     <div class="button-group">
-                        <a href="#apa" class="btn btn-primary wow" data-wow-delay="0.8s">Dapatkan Aplikasi</a>
+                        <a href="#get_app" class="btn btn-primary wow" data-wow-delay="0.8s">Dapatkan Aplikasi</a>
                     </div>
 
                 </div>
-                <div class="col-lg-6"><img src="img/boking.svg" alt="..." class="hero-image img-fluid d-none d-lg-block"></div>
+                <div class="col-lg-6"><img src="{{asset('abouts/img/boking.svg')}}" alt="..." class="hero-image img-fluid d-none d-lg-block"></div>
             </div>
         </div>
     </section>
@@ -74,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 mt-5 mt-lg-0"><img src="img/events.svg" alt="" class="divider-image img-fluid"></div>
+                <div class="col-lg-5 mt-5 mt-lg-0"><img src="{{asset('abouts/img/events.svg')}}" alt="" class="divider-image img-fluid"></div>
             </div>
         </div>
     </section>
@@ -128,7 +127,7 @@
 		        <div class="row d-flex align-items-center content-wrap">
 		            <div class="col-md-6 xs-padding">
 		                <div class="col-lg-6 col-md-12 sm-text-center sm-margin-30px-bottom wow fadeInRight" data-wow-delay="0.2s">
-		                    <img src="img/mobile_app.svg" alt="" class="img-fluid img-effect" />	
+		                    <img src="{{asset('abouts/img/mobile_app.svg')}}" alt="" class="img-fluid img-effect" />	
 		                </div>
 		            </div>
                 <div class="col-md-6 xs-padding">
@@ -153,21 +152,20 @@
     <section class="" id="get_app">
         <div class="container text-center text-lg-left">
                 <div class="section-heading2 ">
-                    <h2>Fitur</h2>
+                    <h2 class="divider-heading text-bold wow fadeInUp" data-wow-delay="0.2s">Dapatkan Sekarang!</h2>
                 </div>
             <div class="row align-items-center">
                 <div class="col-lg-7">
-                    <h2 class="divider-heading text-bold wow fadeInUp" data-wow-delay="0.2s">Dapatkan Sekarang!</h2>
                     <div class="row">
                         <div class="col-lg-10">
-                            <p class="lead divider-subtitle mb-3 text-muted wow fadeInUp" style="margin-top:20px;"  data-wow-delay="0.4s">Aplikasi kami tersedia dalam platform Android dan nikmati kemudahan pesan jasa event kapanpun & dimanapun!</p>
+                            <p class="lead divider-subtitle mb-3 text-muted wow fadeInUp" data-wow-delay="0.4s">Aplikasi kami tersedia dalam platform Android dan nikmati kemudahan pesan jasa event kapanpun & dimanapun!</p>
                             <div class="button-group" style="margin-top:20px;">
-                                <a class="download-btn wow fadeInUp" href="http://play.google.com" data-wow-delay="0.8s"><img src="img/playstore.png" alt="Download Play Store"></a>
+                                <a class="download-btn wow fadeInUp" href="http://play.google.com" data-wow-delay="0.8s"><img src="{{asset('abouts/img/playstore.png')}}" alt="Download Play Store"></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 mt-5 mt-lg-0"><img src="img/adro.svg" alt="" class="divider-image img-fluid"></div>
+                <div class="col-lg-5 mt-5 mt-lg-0"><img src="{{asset('abouts/img/adro.svg')}}" alt="" class="divider-image img-fluid"></div>
             </div>
         </div>
     </section>
@@ -198,13 +196,13 @@
         </div>
     </footer>
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/wow/js/wow.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/jquery.cookie/jquery.cookie.js">
+    <script src="{{asset('abouts/lib/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('abouts/lib/wow/js/wow.min.js')}}"></script>
+    <script src="{{asset('abouts/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('abouts/lib/jquery.cookie/jquery.cookie.js')}}">
     </script>
-    <script src="lib/lightbox2/js/lightbox.js"></script>
-    <script src="js/front.js"></script>
+    <script src="{{asset('abouts/lib/lightbox2/js/lightbox.js')}}"></script>
+    <script src="{{asset('abouts/js/front.js')}}"></script>
     <script>
         new WOW().init();
     </script>

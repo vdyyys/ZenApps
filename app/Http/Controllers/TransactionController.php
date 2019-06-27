@@ -13,7 +13,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('pages.pemesanan');
+        return view('pages.pembayaran');
     }
 
     /**

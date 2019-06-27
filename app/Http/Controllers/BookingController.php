@@ -7,6 +7,7 @@ use App\Paket;
 use App\Eo;
 use App\Booking;
 use Auth;
+use Carbon\Carbon;
 class BookingController extends Controller
 {
     function __construct()
@@ -51,13 +52,13 @@ class BookingController extends Controller
     {
         foreach ($request->nama_paket as $pakets ) {
             $data[] = $pakets;
-            $lastBooking = App\Booking::orderBy('created_at', 'desc')->first();
+            $lastBooking = Booking::orderBy('created_at', 'desc')->first();
             if (!$lastBooking) {
                 $booking_number = str_pad(0,5,0,STR_PAD_LEFT);
             }else {
                 $booking_number = str_pad($lastBooking->id - 1,5,0,STR_PAD_LEFT);
             }
-            $tgl = Carbon\Carbon::now()->format('ym');
+            $tgl = Carbon::now()->format('ym');
             
             $kode_booking = "ZEN".$tgl.$booking_number;
             $user = Auth::user();
@@ -70,6 +71,7 @@ class BookingController extends Controller
             $booking->kode_booking = $kode_booking;
             $booking->metode_pembayaran = $request->metode_pembayaran;
             $booking->harga_total = $request->harga_total;
+            $booking->tanggal_pelaksanaan = $request->tanggal_pelaksanaan;
             $booking->save();
             return redirect()->route('transaction.index');
         }

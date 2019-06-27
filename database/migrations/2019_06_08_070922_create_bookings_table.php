@@ -17,10 +17,11 @@ class CreateBookingsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_eo');
             $table->bigInteger('id_user');
-            $table->bigInteger('nama_paket');
+            $table->string('nama_paket');
             $table->string('kode_booking');
             $table->string('metode_pembayaran');
             $table->bigInteger('harga_total');
+            $table->date('tanggal_pelaksanaan'); 
             $table->integer('approval')->default(0);
             $table->timestamps();
         });

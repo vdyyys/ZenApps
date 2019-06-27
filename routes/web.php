@@ -56,4 +56,9 @@ Route::post('/cart/{nama_paket}', ['as'=> 'cart.store', 'uses' =>'CartController
 Route::get('/cart', ['as'=>'cart', 'uses'=> 'CartController@index']);
 Route::get('/cart/{id}', ['as'=>'cart.destroy', 'uses'=> 'CartController@destroy']);
 
+Route::resource('transaction', 'TransactionController');
 Route::resource('booking','BookingController');
+
+Route::get('/konfirmasi', function(){
+    return view('pages.konfirmasi');
+});

@@ -11,5 +11,11 @@
         </h3>
     </div>
     <br><br><br>
+
+    <div class="d-flex justify-content-center">
+        <h3 class="title text-center">Upload bukti transfer<br><br>
+        <input type="file" name="" id="">
+    </div>
+
 </div>
 @endsection
