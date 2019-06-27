@@ -30,6 +30,7 @@ class BookingController extends Controller
      */
     public function create(Request $request)
     {   
+        // return $request->nama_paket;
         foreach ($request->nama_paket as $data ) {
             $user = Auth::user();
             $nama_pakets[] = $data;

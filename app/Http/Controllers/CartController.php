@@ -27,8 +27,13 @@ class CartController extends Controller
             {
                 foreach ($carts as $cart ) {
                     $pakets = Paket::where('id', $cart->id_paket)->get();
-                    $harga_total = array_sum($pakets->harga_paket);
-                    return view('pages.cart', compact('pakets', 'harga_total'));
+
+                    foreach ($pakets as $paket ) {
+                        $harga[] = $paket->harga_paket;
+                        $harga_total = array_sum($harga);
+                        $cart = Cart::where('id_paket', $paket->id)->first();
+                        return view('pages.cart', compact('pakets', 'harga_total','cart'));
+                    }
                 }
             }else {
                 $pakets = [];
@@ -113,6 +118,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cart = Cart::find($id);
+        $cart->delete();
+        return redirect()->route('cart');
     }
 }

@@ -11,7 +11,6 @@
                 <th class="product-image">Image</th>
                 <th class="product-details">Product</th>
                 <th class="product-price">Price</th>
-                <th class="product-quantity">Quantity</th>
                 <th class="product-removal">Remove</th>
                 <th class="product-line-price">Total</th>
             </thead>
@@ -29,13 +28,10 @@
                       <p class="product-description">{{substr($p->deskripsi,0,25)}}</p>
                   </td>
                   <td class="product-price">{{$p->harga_paket}}</td>
-                  <td class="product-quantity">
-                      <input type="number" value="1" min="1">
-                  </td>
                   <td class="product-removal">
-                      <button class=" btn btn-danger btn-sm remove-product">
+                      <a href="{{route('cart.destroy', ['id'=> $cart->id] )}}" class=" btn btn-danger btn-sm remove-product">
                         <i class="fa fa-trash-o"></i>
-                      </button>
+                      </a>
                   </td>
                   <td class="product-line-price">{{$p->harga_paket}}</td>
               </tr>
@@ -43,7 +39,7 @@
             </tbody>
             <tfoot>
               <tr class="totals">
-                  <td colspan="4"></td>
+                  <td colspan="3"></td>
                   <td class="totals-item">
                       <label>Subtotal</label>
                       <div class="totals-value" id="cart-subtotal">{{$harga_total}}</div>
@@ -51,13 +47,13 @@
                   <td class="totals-item totals-item-total">
                       <label>Grand Total</label>
                       <div class="totals-value" id="cart-total">{{$harga_total}}</div>
-                      <input type="hidden" name="harga_total" id="total" >
+                      <input type="hidden" value="{{$harga_total}}" name="harga_total" id="total" >
                   </td>
               <tr>
-              @if($pakets->count() != 0)
               <tr>
-                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Lihat Paket</a></td>
-                <td colspan="4"></td>
+                <td><a href="{{ url('/') }}" style="color: #fff" class="btn btn-warning"><i class="fa fa-angle-left"></i> Kembali ke laman utama</a></td>
+                <td colspan="3"></td>
+              @if( ! empty($pakets))
                 <td>
                   <button class="btn btn-success checkout">Checkout <i class="fa fa-angle-right"></i></button>
                 </td>
@@ -134,16 +130,16 @@ function updateQuantity(quantityInput)
 }
 
 
-/* Remove item from cart */
-function removeItem(removeButton)
-{
-  /* Remove row from DOM and recalc cart total */
-  var productRow = $(removeButton).parent().parent();
-  productRow.slideUp(fadeTime, function() {
-    productRow.remove();
-    recalculateCart();
-  });
-}
+// /* Remove item from cart */
+// function removeItem(removeButton)
+// {
+//   /* Remove row from DOM and recalc cart total */
+//   var productRow = $(removeButton).parent().parent();
+//   productRow.slideUp(fadeTime, function() {
+//     productRow.remove();
+//     recalculateCart();
+//   });
+// }
 
 </script>
 @endsection
