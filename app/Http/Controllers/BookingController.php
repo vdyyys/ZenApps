@@ -71,6 +71,7 @@ class BookingController extends Controller
             $booking->metode_pembayaran = $request->metode_pembayaran;
             $booking->harga_total = $request->harga_total;
             $booking->save();
+            return redirect()->route('transaction.index');
         }
     }
 
