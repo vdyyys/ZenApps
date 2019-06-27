@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Eo;
+use App\Booking;
+use App\User;
 class UserController extends Controller
 {
     /**
@@ -20,8 +22,15 @@ class UserController extends Controller
 
             $user = Auth::user();
             $eos = Eo::where('user_id', $user->id)->first();
-            
-            return view('pages.dashboard', compact('user','eos'));
+            if ($eos == null) {
+                $id_eo = null;
+                $bookings = null;
+                $pemesan = null;
+            }else {
+                $id_eo = $eos->id;
+                $bookings = Booking::where('id_eo', $id_eo)->get();
+            }
+            return view('pages.dashboard', compact('user','eos', 'bookings'));
         }
     }
 
@@ -77,7 +86,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $booked = Booking::find($id);
+            $booked->approval = 1;
+            $booked->save();
+            return redirect ('/user');
     }
 
     /**
@@ -90,4 +102,5 @@ class UserController extends Controller
     {
         //
     }
+
 }

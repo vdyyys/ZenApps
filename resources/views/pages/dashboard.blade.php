@@ -110,22 +110,26 @@
                                             <thead>
                                                 <tr>
                                                     <th>Paket</th>
+                                                    <th>Nama Pemesan</th>
                                                     <th>Tanggal</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
+                                            @foreach ($bookings as $bookings)
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ url('/paket/detail') }}">Paket Nikah ABC</a>
+                                                        <a href="{{ url('/paket/detail') }}">{{$bookings->nama_paket}}</a>
                                                     </td>
-                                                    <td>24-07-2020</td>
+                                                    <td>{{App\User::where('id', $bookings->id_user)->first()->name}}</td>
+                                                    <td>{{$bookings->tanggal_pelaksanaan}}</td>
                                                     <td>
-                                                        <button class="btn btn-outline-primary">Approve</button>
-                                                        <button class="btn btn-outline-danger">Disapprove</button>
+                                                        <a href="{{ url('/approval/'.$bookings->id) }}" class="btn btn-outline-primary">Approve</a>
+                                                        <a href="{{ url('/disapproval') }}" class="btn btn-outline-danger">Disapprove</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
+                                            @endforeach
                                         </table>
                                         <a href="#">More ...</a>
                                     </div>

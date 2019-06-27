@@ -60,3 +60,4 @@ Route::get('/konfirmasi', function(){
 });
 
 Route::resource('transfer', 'ManualTransactionController');
+Route::get('/approval/{id}', 'UserController@update');
