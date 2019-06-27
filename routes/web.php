@@ -62,3 +62,5 @@ Route::resource('booking','BookingController');
 Route::get('/konfirmasi', function(){
     return view('pages.konfirmasi');
 });
+
+Route::get('/notifikasi', 'NotifikasiController@index');

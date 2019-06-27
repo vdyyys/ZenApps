@@ -79,6 +79,7 @@ class BookingController extends Controller
             $notifikasi->id_sender = $user->id;
             $notifikasi->id_receiver = $eo->user_id;
             $notifikasi->id_psean = 2; 
+            $notifikasi->save();
 
             return redirect()->route('transaction.index');
         }

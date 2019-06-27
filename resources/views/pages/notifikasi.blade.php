@@ -30,19 +30,18 @@
                                     <main class="col-sm-12">
                                         <article>
                                             <div class="row d-flex justify-content-center">
-                                                <aside class="col-md-3">
+                                                <aside class="offset-md-2">
                                                     <div class="ava-prof">
                                                         <img class="home-pho" alt="notif" src="{{ asset('img/paket/weds.jpg') }}">
                                                     </div>
                                                 </aside> 
-                                                <aside class="col-md-9">
-                                                    <h5 class="title"> Konfimasi Penerimaan Pesanan Paket Nikah</h5>
-                                                    <p class="texts">Pesanan BK00535481749012 telah diterima.. </p>
-                                                    <div>
-                                                        <button class="btn btn-warning">Approve</button>
-                                                        <button class="btn btn-danger">Disapprove</button>
-                                                    </div>
+                                                @foreach($notifikasi as $n)
+                                                <aside class="col-md-8">
+                                                    <h5 class="title">Notifikasi Baru Untuk Anda</h5>
+                                                    <p class="texts">{{App\Pesan::where('id', $n->id_pesan)->first()->pesan}} </p>
+                                                    <a href="/user">Lihat Profil</a>
                                                 </aside>
+                                                @endforeach
                                             </div> 
                                             <hr>
                                         </article>
