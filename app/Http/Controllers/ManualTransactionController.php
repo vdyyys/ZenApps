@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\ManualTransaction;
 
-class TransactionController extends Controller
+class ManualTransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //return view('pages.pembayaran');
+       return view ('pages.pembayaran');
+       //$user = Auth::user()->name;
+       //return compact('user');
     }
 
     /**
@@ -34,7 +38,19 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            if ($request->hasfile('bukti_transfer')) {
+                    $nama_gambar = $request->bukti_transfer->getClientOriginalName();
+                    $request->bukti_transfer->move(public_path().'/img/bukti_transfer/', $nama_gambar);
+                    $user = Auth::user();
+                    $buktis = new ManualTransaction();
+                    $buktis->bukti_transfer = $nama_gambar;
+                    $buktis->nama_bank = $request->nama_bank;
+                    $buktis->nama_pengirim = $user->name;
+                    $buktis->save();
+
+                    return redirect ('/user');
+            }
+        
     }
 
     /**

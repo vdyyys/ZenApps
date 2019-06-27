@@ -33,10 +33,6 @@ Route::get('/pemesanan', function(){
     return view('pages.pemesanan');
 });
 
-Route::get('/pembayaran', function(){
-    return view('pages.pembayaran');
-});
-
 Route::get('/cart', function(){
     return view('pages.cart');
 });
@@ -62,3 +58,5 @@ Route::resource('booking','BookingController');
 Route::get('/konfirmasi', function(){
     return view('pages.konfirmasi');
 });
+
+Route::resource('transfer', 'ManualTransactionController');
