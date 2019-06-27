@@ -12,6 +12,9 @@
             <br /><br />
             <div class="container">
                 <div class="offset-md-2 col-md-8">
+                <form action="{{route('booking.store')}}" method="post">
+                {{csrf_field()}}
+                
                     <div class="form-group row">
                         <label for="nama_barang" class="col-sm-6 col-form-label"><b>Nama Pemesan</b></label>
                         <div class="col-sm-6">
@@ -21,19 +24,21 @@
                     <div class="form-group row">
                         <label for="nama_barang" class="col-sm-6 col-form-label"><b>Nama Eo Tujuan</b></label> 
                         <div class="col-sm-6">
-                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="{{$eo->nama_eo}}">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="nama_eo" placeholder="" value="{{$eo->nama_eo}}">
                         </div>
                     </div>
+                    @foreach($nama_paket as $np)
                     <div class="form-group row">
                         <label for="harga_paket" class="col-sm-6 col-form-label"><b>Nama Paket Yang di pesan</b></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <input type="text" class="form-control" id="tgl_ambil" name="nama_paket[]" placeholder="" value="{{$np}}">
                         </div>
                     </div>
+                    @endforeach
                     <div class="form-group row">
                         <label for="des_pkt" class="col-sm-6 col-form-label"><b>Harga Total</b></label>
                         <div class="col-sm-6">
-                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="{{$harga_total}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -45,13 +50,17 @@
                     <div class="form-group row">
                         <label for="harga_paket" class="col-sm-6 col-form-label"><b>Metode pembayaran</b></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <select name="metode_pembayaran"  class="form-control">
+                                <option value=""></option>
+                                <option value="transfer">transfer</option>
+                            </select>
                         </div>
                     </div>
                     <br />
                     <div class="text-center">
-                        <button href="{{ url('/dashboard') }}" class="btn btn-outline-danger" type="reset">Pesan Paket</button>
+                        <button class="btn btn-outline-danger" type="submit">Pesan Paket</button>
                     </div>
+                </form>
                     <br /><br />
                 </div>
                 <br />
