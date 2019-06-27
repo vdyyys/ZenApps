@@ -13,27 +13,33 @@
             <div class="container">
                 <div class="offset-md-2 col-md-8">
                     <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-6 col-form-label"><b> Nama Paket yang Diambil</b></label>
+                        <label for="nama_barang" class="col-sm-6 col-form-label"><b>Nama Pemesan</b></label>
+                        <div class="col-sm-6">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="{{$user->name}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama_barang" class="col-sm-6 col-form-label"><b>Nama Eo Tujuan</b></label> 
+                        <div class="col-sm-6">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="{{$eo->nama_eo}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="harga_paket" class="col-sm-6 col-form-label"><b>Nama Paket Yang di pesan</b></label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="des_pkt" class="col-sm-6 col-form-label"><b>Deskripsi</b></label>
+                        <label for="des_pkt" class="col-sm-6 col-form-label"><b>Harga Total</b></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <input type="text" readonly class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="tgl_ambil" class="col-sm-6 col-form-label"><b>Tanggal Acara</b></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="harga_paket" class="col-sm-6 col-form-label"><b>Harga Paket</b></label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
+                            <input type="date" class="form-control" id="tgl_ambil" name="harga_paket" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group row">

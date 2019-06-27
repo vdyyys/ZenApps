@@ -59,6 +59,26 @@
                 </div>
             </div>
         </div>
+        @else
+<link rel="stylesheet" href="{{asset('/css/material-dashboard/material-dashboard.min.css')}}">
+
+        <div class="col-md-6 offset-md-3">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img class=" img-circle" src="{{asset('/img/profile/card-profile.jpg')}}" />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                  <a href="#pablo" class="btn btn-info btn-round">Follow</a>
+                </div>
+              </div>
+            </div>
         @endif
         <div class="row">
             <div class="col-md-6">

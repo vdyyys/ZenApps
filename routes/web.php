@@ -54,3 +54,4 @@ Route::post('/paket/{paket}/addAvailability', ['as'=>'paket.add', 'uses'=> 'Pake
 // CART
 Route::post('/cart/{nama_paket}', ['as'=> 'cart.store', 'uses' =>'CartController@store']);
 Route::get('/cart', ['as'=>'cart', 'uses'=> 'CartController@index']);
+Route::resource('booking','BookingController');
