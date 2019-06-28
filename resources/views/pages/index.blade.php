@@ -49,7 +49,7 @@
     <div class="container">
       <div class="row">
           <div class="col-md-2 col-sm-4 data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/concert">
               <div class="box">
                   <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                     <img src="img/icon/ico-04.svg" style="color:white" alt="">
@@ -59,7 +59,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/party">
               <div class="box">
                   <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                     <img src="img/icon/ico-03.svg" style="color:white" alt="">
@@ -69,7 +69,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/wedding">
                   <div class="box">
                       <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                         <img src="img/icon/ico-01.svg" style="color:white" alt="">
@@ -79,7 +79,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/conference">
                   <div class="box">
                       <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                         <img src="img/icon/ico-02.svg" style="color:white" alt="">
@@ -89,7 +89,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/rental">
                   <div class="box">
                       <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                         <img src="img/icon/ico-06.svg" style="color:white" alt="">
@@ -99,7 +99,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="">
+              <a href="/kategori/katering">
                   <div class="box">
                       <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                         <img src="img/icon/ico-05.svg" style="color:white" alt="">
