@@ -7,6 +7,7 @@ use Auth;
 use App\Eo;
 use App\Booking;
 use App\User;
+use DB;
 class UserController extends Controller
 {
     /**
@@ -30,7 +31,24 @@ class UserController extends Controller
                 $id_eo = $eos->id;
                 $bookings = Booking::where('id_eo', $id_eo)->get();
             }
-            return view('pages.dashboard', compact('user','eos', 'bookings'));
+            $data = DB::table('bookings')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%M %Y") as booking_month'), DB::raw('count(*) as bookings'))
+            ->where('id_eo','=', $id_eo)
+            ->orderBy('created_at', 'asc')
+            ->groupBy('booking_month')
+            ->get();
+
+            // $data_graph = array();
+            // array_push($data_graph,[
+            //     $bookings[0]->created_at->format('m/Y'), 
+                
+            //     ]);
+            // return $data;
+
+            $d = json_encode($data);
+            // return $d;
+            
+            return view('pages.dashboard', compact('user','eos', 'bookings', 'data'));
         }
     }
 

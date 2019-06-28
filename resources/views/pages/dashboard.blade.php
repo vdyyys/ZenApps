@@ -22,8 +22,8 @@
                         <i class="fa fa-briefcase fa-icon-medium"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> IDR 0 </div>
-                        <div class="desc"> Total Profit  </div>
+                        <div class="number"> 0 </div>
+                        <div class="desc"> Total Transaksi Berhasil </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
                         <i class="m-icon-swapright m-icon-white"></i>
@@ -36,8 +36,8 @@
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> IDR 0 </div>
-                        <div class="desc"> Total Pajak </div>
+                        <div class="number"> {{$bookings->count()}} </div>
+                        <div class="desc"> Total Pemesan </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
                         <i class="m-icon-swapright m-icon-white"></i>
@@ -50,7 +50,7 @@
                         <i class="fa fa-group fa-icon-medium"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> Rp 0 </div>
+                        <div class="number"> IDR 0</div>
                         <div class="desc"> Total Pemasukan </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
@@ -215,18 +215,18 @@
                         </div>
                         <div class="well margin-top-20">
                             <div class="row">
-                                <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                                    <span class="label label-info"> Profit: </span>
-                                    <h3>Rp. 10.000.000</h3>
-                                </div>
+                                <!-- <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                                    <span class="label label-info"> Transaksi: </span>
+                                    <h3>0</h3>
+                                </div> -->
                                 <div class="col-md-6 col-sm-6 col-xs-6 text-stat">
-                                    <span class="label label-danger"> Pajak: </span>
-                                    <h3>Rp. 5.000.000</h3>
+                                    <span class="label label-danger"> Pemesan: </span>
+                                    <h3>{{$bookings->count()}}</h3>
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
+                                <!-- <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
                                     <span class="label label-success"> Pemasukan: </span>
-                                    <h3>Rp. 5.000.000</h3>
-                                </div>
+                                    <h3>IDR 0</h3>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -235,4 +235,188 @@
         </div>
     </div>
 </div>
+<script>
+var EcommerceDashboard = (function() {
+  function o(o, i, t, a) {
+    $(
+      '<div id="tooltip" class="chart-tooltip">' +
+        a.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,") +
+        " User</div>"
+    )
+      .css({
+        position: "absolute",
+        display: "none",
+        top: i - 40,
+        left: o - 60,
+        border: "0px solid #ccc",
+        padding: "2px 6px",
+        "background-color": "#fff"
+      })
+      .appendTo("body")
+      .fadeIn(200);
+  }
+  var i = function() {
+      var i = [
+            @foreach($data as $d)
+            ["{{$d->booking_month}}", {{$d->bookings}}]
+            @endforeach
+      ],
+        t = ($.plot(
+          $("#statistics_1"),
+          [
+            { data: i, lines: { fill: 0.6, lineWidth: 0 }, color: ["#484d7c"] },
+            {
+              data: i,
+              points: {
+                show: !0,
+                fill: !0,
+                radius: 5,
+                fillColor: "#f89f9f",
+                lineWidth: 3
+              },
+              color: "#fff",
+              shadowSize: 0
+            }
+          ],
+          {
+            xaxis: {
+              tickLength: 0,
+              tickDecimals: 0,
+              mode: "categories",
+              font: {
+                lineHeight: 15,
+                style: "normal",
+                variant: "small-caps",
+                color: "#6F7B8A"
+              }
+            },
+            yaxis: {
+              ticks: 3,
+              tickDecimals: 0,
+              tickColor: "#f0f0f0",
+              font: {
+                lineHeight: 15,
+                style: "normal",
+                variant: "small-caps",
+                color: "#6F7B8A"
+              }
+            },
+            grid: {
+              backgroundColor: { colors: ["#fff", "#fff"] },
+              borderWidth: 1,
+              borderColor: "#f0f0f0",
+              margin: 0,
+              minBorderMargin: 0,
+              labelMargin: 20,
+              hoverable: !0,
+              clickable: !0,
+              mouseActiveRadius: 6
+            },
+            legend: { show: !1 }
+          }
+        ),
+        null);
+      $("#statistics_1").bind("plothover", function(i, a, e) {
+        if (($("#x").text(a.x.toFixed(2)), $("#y").text(a.y.toFixed(2)), e)) {
+          if (t != e.dataIndex) {
+            (t = e.dataIndex), $("#tooltip").remove();
+            e.datapoint[0].toFixed(2), e.datapoint[1].toFixed(2);
+            o(e.pageX, e.pageY, e.datapoint[0], e.datapoint[1]);
+          }
+        } else $("#tooltip").remove(), (t = null);
+      });
+    },
+    t = function() {
+      var i = [
+          ["01/2013", 10],
+          ["02/2013", 0],
+          ["03/2013", 10],
+          ["04/2013", 12],
+          ["05/2013", 212],
+          ["06/2013", 324],
+          ["07/2013", 122],
+          ["08/2013", 136],
+          ["09/2013", 250],
+          ["10/2013", 99],
+          ["11/2013", 190]
+        ],
+        t = ($.plot(
+          $("#statistics_2"),
+          [
+            { data: i, lines: { fill: 0.6, lineWidth: 0 }, color: ["#BAD9F5"] },
+            {
+              data: i,
+              points: {
+                show: !0,
+                fill: !0,
+                radius: 5,
+                fillColor: "#BAD9F5",
+                lineWidth: 3
+              },
+              color: "#fff",
+              shadowSize: 0
+            }
+          ],
+          {
+            xaxis: {
+              tickLength: 0,
+              tickDecimals: 0,
+              mode: "categories",
+              min: 2,
+              font: {
+                lineHeight: 14,
+                style: "normal",
+                variant: "small-caps",
+                color: "#6F7B8A"
+              }
+            },
+            yaxis: {
+              ticks: 3,
+              tickDecimals: 0,
+              tickColor: "#f0f0f0",
+              font: {
+                lineHeight: 14,
+                style: "normal",
+                variant: "small-caps",
+                color: "#6F7B8A"
+              }
+            },
+            grid: {
+              backgroundColor: { colors: ["#fff", "#fff"] },
+              borderWidth: 1,
+              borderColor: "#f0f0f0",
+              margin: 0,
+              minBorderMargin: 0,
+              labelMargin: 20,
+              hoverable: !0,
+              clickable: !0,
+              mouseActiveRadius: 6
+            },
+            legend: { show: !1 }
+          }
+        ),
+        null);
+      $("#statistics_2").bind("plothover", function(i, a, e) {
+        if (($("#x").text(a.x.toFixed(2)), $("#y").text(a.y.toFixed(2)), e)) {
+          if (t != e.dataIndex) {
+            (t = e.dataIndex), $("#tooltip").remove();
+            e.datapoint[0].toFixed(2), e.datapoint[1].toFixed(2);
+            o(e.pageX, e.pageY, e.datapoint[0], e.datapoint[1]);
+          }
+        } else $("#tooltip").remove(), (t = null);
+      });
+    };
+  return {
+    init: function() {
+      i(),
+        $("#statistics_orders_tab").on("shown.bs.tab", function(o) {
+          t();
+        });
+    }
+  };
+})();
+jQuery(document).ready(function() {
+  EcommerceDashboard.init();
+});
+</script>
 @endsection

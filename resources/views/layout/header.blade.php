@@ -59,7 +59,7 @@ $user = \Illuminate\Support\Facades\Auth::user();
   <script src="{{ asset('js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('js/app.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('js/table-datatables-buttons.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('js/dashboard.min.js') }}" type="text/javascript"></script>
+  <!-- <script src="{{ asset('js/dashboard.min.js') }}" type="text/javascript"></script> -->
   <script src="{{ asset('js/jquery.easypiechart.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('js/moment.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('js/jquery.sparkline.min.js') }}" type="text/javascript"></script>
