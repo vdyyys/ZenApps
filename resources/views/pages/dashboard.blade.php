@@ -22,7 +22,7 @@
                         <i class="fa fa-briefcase fa-icon-medium"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> Rp 11.900.000 </div>
+                        <div class="number"> IDR 0 </div>
                         <div class="desc"> Total Profit  </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
@@ -36,7 +36,7 @@
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> Rp 15.200.000 </div>
+                        <div class="number"> IDR 0 </div>
                         <div class="desc"> Total Pajak </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
@@ -50,7 +50,7 @@
                         <i class="fa fa-group fa-icon-medium"></i>
                     </div>
                     <div class="details">
-                        <div class="number"> Rp 239.000 </div>
+                        <div class="number"> Rp 0 </div>
                         <div class="desc"> Total Pemasukan </div>
                     </div>
                     <a class="more" href="javascript:;"> View more
