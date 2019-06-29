@@ -60,7 +60,8 @@ Route::get('/konfirmasi', function(){
 });
 
 Route::resource('transfer', 'ManualTransactionController');
-Route::get('/approval/{id}', 'UserController@update');
+Route::get('/approval/{id}', 'UserController@approve');
+Route::get('/disapproval{id}', 'UserController@disapprove');
 Route::get('/notifikasi', 'NotifikasiController@index');
 
 Route::resource('kategori', 'KategoriController');

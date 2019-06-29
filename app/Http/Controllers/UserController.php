@@ -25,7 +25,7 @@ class UserController extends Controller
             $eos = Eo::where('user_id', $user->id)->first();
             if ($eos == null) {
                 $id_eo = null;
-                $bookings = null;
+                $bookings = Booking::where('id_user', $user->id)->get();
                 $pemesan = null;
             }else {
                 $id_eo = $eos->id;
@@ -104,10 +104,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $booked = Booking::find($id);
-            $booked->approval = 1;
-            $booked->save();
-            return redirect ('/user');
+            
     }
 
     /**
@@ -119,6 +116,20 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function approve(Request $request, $id)
+    {
+        $booked = Booking::find($id);
+        $booked->approval = 1;
+        $booked->save();
+        return redirect ('/user');
+    }
+    public function disapprove(Request $request, $id)
+    {
+        $booked = Booking::find($id);
+        $booked->approval = 2;
+        $booked->save();
+        return redirect ('/user');
     }
 
 }

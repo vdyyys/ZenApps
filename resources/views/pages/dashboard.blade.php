@@ -59,27 +59,6 @@
                 </div>
             </div>
         </div>
-        @else
-<link rel="stylesheet" href="{{asset('/css/material-dashboard/material-dashboard.min.css')}}">
-
-        <div class="col-md-6 offset-md-3">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    <img class=" img-circle" src="{{asset('/img/profile/card-profile.jpg')}}" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                  <h4 class="card-title">Alec Thompson</h4>
-                  <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                  </p>
-                  <a href="#pablo" class="btn btn-info btn-round">Follow</a>
-                </div>
-              </div>
-            </div>
-        @endif
         <div class="row">
             <div class="col-md-6">
                 <div class="portlet light bordered">
@@ -124,8 +103,14 @@
                                                     <td>{{App\User::where('id', $bookings->id_user)->first()->name}}</td>
                                                     <td>{{$bookings->tanggal_pelaksanaan}}</td>
                                                     <td>
-                                                        <a href="{{ url('/approval/'.$bookings->id) }}" class="btn btn-outline-primary">Approve</a>
-                                                        <a href="{{ url('/disapproval') }}" class="btn btn-outline-danger">Disapprove</a>
+                                                      @if($bookings->approval == 0)
+                                                        <a href="{{ url('/approval/'.$bookings->id) }}" class="btn btn-outline-primary">Accept</a>
+                                                        <a href="{{ url('/disapproval') }}" class="btn btn-outline-danger">Reject</a>
+                                                      @elseif($bookings->approval == 1)
+                                                        <button class="btn btn-primary disabled">Accepted</button>
+                                                      @else
+                                                        <button class="btn btn-danger disabled">Rejected</button>
+                                                      @endif
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -233,6 +218,145 @@
                 </div>
             </div>
         </div>
+        @else
+        <link rel="stylesheet" href="{{asset('/css/material-dashboard/material-dashboard.min.css')}}">
+
+        <div class="col-md-8 offset-md-2">
+          <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="#pablo">
+                <img class=" img-circle" src="{{asset('/img/profile/card-profile.jpg')}}" />
+              </a>
+            </div>
+            <div class="card-body">
+              <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+              <h4 class="card-title">Alec Thompson</h4>
+              <p class="card-description">
+                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+              </p>
+              <a href="#pablo" class="btn btn-info btn-round">Follow</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" id="request">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-share font-blue"></i>
+                        <span class="caption-subject font-blue bold uppercase">Overview</span>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="#overview_request" data-toggle="tab">Request</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#overview_progress" data-toggle="tab">Progress</a>
+                            </li>
+                            <li>
+                                <a href="#overview_history" data-toggle="tab">History</a>
+                            </li> -->
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview_request">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Paket</th>
+                                                <th>Tanggal Pelaksanaan</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ($bookings as $bookings)
+                                        <tbody>
+                                            <tr>
+                                                <td>{{$bookings->nama_paket}}</td>
+                                                <td>{{$bookings->tanggal_pelaksanaan}}</td>
+                                                <td>
+                                                  @if($bookings->approval == 0)
+                                                    <button class="btn btn-info active">Menunggu konfirmasi EO</button>
+                                                  @elseif($bookings->approval == 1)
+                                                    <button class="btn btn-primary active">Accepted</button>
+                                                  @else
+                                                    <button class="btn btn-danger active">Rejected</button>
+                                                  @endif
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- <div class="tab-pane" id="overview_progress">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Client</th>
+                                                <th>Progress</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="{{ url('/paket/detail') }}">Sumartini</a>
+                                                </td>
+                                                <td>Deal Fasilitas Paket</td>
+                                                <td>
+                                                    <a href="javascript:;" class="">
+                                                        <i class="fa fa-search"></i>
+                                                        Detail
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <a href="#">More ...</a>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane" id="overview_history">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Client</th>
+                                                <th>Paket</th>
+                                                <th>Status Pelunasan</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                                <td>
+                                                    <a href="javascript:;"> Sumanto</a>
+                                                </td>
+                                                <td>Paket Sunatan #5000</td>
+                                                <td>Lunas</td>
+                                                <td>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-search"></i>
+                                                        Detail
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <a href="#">More ...</a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 <script>

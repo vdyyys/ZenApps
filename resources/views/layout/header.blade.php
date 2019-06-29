@@ -118,8 +118,8 @@ $user = \Illuminate\Support\Facades\Auth::user();
         <li class="drop-down"><a href="#"><span>{{$user->name}}</span></a>
           <ul>
             <li><a href="{{route('eo.create')}}" class="trigger-btn">Daftarkan EO</a></li>
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">My Order</a></li>
+            <li><a href="/user">My Profile</a></li>
+            <li><a href="/user#request">My Order</a></li>
             <li><a href="#" onclick="document.getElementById('logout-form').submit();">Sign Out</a></li>
           </ul>
         </li>
