@@ -39,37 +39,37 @@
 <section class="section-bg-2 section-content padding-y-sm">
 	<div class="container">
 		<br>
-		<h1 class="text-detail-paket">Detail Paket Nikah ABC Organizer</h1>
+		<h1 class="text-detail-paket">{{$paket->nama_paket}}</h1>
 		<br>
 		<main class="card">
 			<div class="row no-gutters">
 				<div class="col-sm-6">
 					<article class="gallery-wrap"> 
 						<div class="img-big-wrap">
-							<br>
-							<img class="img-responsive img-wrap" src="{{ asset('img/upload/thinking.png') }}" >
+							<img style="max-width: 100%" class="img-respo img-wrap" src="{{($paket->gambar_paket != null )? asset('img/gambar_paket/'.$paket->gambar_paket) : asset('img/favicon.png') }}" >
 						</div>
 					</article>
 				</div>
 				<div class="col-sm-6">
 					<article class="card-body">
 						<!-- short-info-wrap -->
-							<h3 class="title mb-3">Paket Nikah</h3>
+							<h3 class="title mb-3">{{$paket->nama_paket}}</h3>
 						<div class="mb-3"> 
 							<var class="price h3 text-warning"> 
-								<span class="currency">Rp. 10.000,-</span>
+								<span class="currency">IDR <b>{{number_format($paket->harga_paket)}}</b></span>
 							</var> 
 						</div>
 						<br />
 						<div class="row">
 								<dt class="col-sm-3">Kategori</dt>
-								<dd class="col-sm-9">Wedding</dd>
+								<dd class="col-sm-9">{{$paket->kategori}}</dd>
 
 								<dt class="col-sm-3">Fasilitas</dt>
-								<dd class="col-sm-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat nisl et magna scelerisque condimentum. Morbi a tincidunt lectus. Maecenas placerat tellus leo. Nunc magna urna, viverra eget tellus eu, volutpat hendrerit turpis. Nunc a libero gravida diam placerat interdum non non mi. Proin pretium vel justo quis vestibulum. Curabitur blandit, orci sit amet gravida gravida, purus risus eleifend metus, lobortis convallis elit dolor a odio. Cras nisi nulla, varius quis ligula at, consequat dapibus sem. Integer at neque imperdiet, fringilla ipsum a, ultrices lorem. Vivamus at vehicula sem. Proin pellentesque tristique pretium. Suspendisse sapien nisi, ullamcorper sodales fringilla vitae, tempus nec mi. Donec dapibus enim eu viverra tincidunt. Praesent ut ex sed purus sagittis pharetra.</dd>
+								<dd class="col-sm-9">{{$paket->deskripsi}}</dd>
 						</div>
 						<br>
-							<a href="#" class="btn btn-danger"><i class="fa fa-shopping-basket"></i> Pesan Paket</a>
+						<button onclick="document.getElementById('addToCart').submit();" class="btn btn-danger"><i class="fa fa-shopping-basket"></i> Booking Sekarang</button>
+						<form id="addToCart" style="display:none;" action="{{route('cart.store', ['nama_paket' => str_replace(' ','_',$paket->nama_paket)])}}" method="POST">{{csrf_field()}}</form>
 					</article> 
 				</div> 
 			</div>

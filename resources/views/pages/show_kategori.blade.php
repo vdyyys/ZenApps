@@ -10,19 +10,22 @@
     <div class="item text-center">
         <div class="row">
             <div class="container">
+            @foreach($paket as $p)
                 <div class="col-sm-3">
                     <div class="thumb-wrappers">
                         <div class="img-box">
-                            <img src="{{($p->gambar_paket != null )? asset('img/gambar_paket/'.$p->gambar_paket) : asset('img/favicon.png') ;}}" class="img-responsive img-fluid img-rd" alt="">									
+                            <img src="{{($p->gambar_paket != null )? asset('img/gambar_paket/'.$p->gambar_paket) : asset('img/favicon.png') }}" class="img-responsive img-fluid img-rd" alt="">									
                         </div>
-                        <div class="thumb-content">
-                            <h4>{$p->nama_paket}</h4>									
-                            <p class="item-price">IDR <b>{number_format($p->harga_paket)}</b></p>
-                            <a href="{route('paket.show', ['id' => $p->id])}" class="btn btn-outline-info"><i class="fa fa-info white"></i> Lihat</a>
-                            <a href="{route('paket.show', ['id' => $p->id])}" class="btn btn-danger mt-2"><i class="fa fa-shopping-basket"></i> Booking Sekarang</a>
+                        <div class="thumb-content mt-2">
+                            <h4>{{$p->nama_paket}}</h4>									
+                            <p class="item-price">IDR <b>{{number_format($p->harga_paket)}}</b></p>
+                            <a href="{{route('paket.show', ['id' => $p->id])}}" class="btn btn-outline-info"><i class="fa fa-info white"></i> Lihat</a>
+                            <button onclick="document.getElementById('addToCart').submit();" class="btn btn-danger mt2"><i class="fa fa-shopping-basket"></i> Booking Sekarang</button>
+						<form id="addToCart" style="display:none;" action="{{route('cart.store', ['nama_paket' => str_replace(' ','_',$paket->nama_paket)])}}" method="POST">{{csrf_field()}}</form>
                         </div>						
                     </div>
                 </div>
+            @endforeach
             </div>
         </div>
     </div>

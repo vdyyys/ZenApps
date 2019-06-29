@@ -20,20 +20,20 @@
             @foreach ($pakets as $p)
               <tr class="product">
                   <td class="product-image">
-                      <img  src="{{asset('img/gambar_paket/'.$p->gambar_paket)}}">
+                      <img style="max-width: 30%" src="{{asset('img/gambar_paket/'.$p->gambar_paket)}}">
                   </td>
                   <td class="product-details">
-                      <div class="product-title">{{$p->nama_paket}}</div>
+                      <div class="product-title"><b>{{$p->nama_paket}}</b></div>
                       <input type="hidden" name="nama_paket[]" value="{{$p->nama_paket}}">
                       <p class="product-description">{{substr($p->deskripsi,0,25)}}</p>
                   </td>
-                  <td class="product-price">{{$p->harga_paket}}</td>
+                  <td class="product-price">IDR {{$p->harga_paket}}</td>
                   <td class="product-removal">
                       <a href="{{route('cart.destroy', ['id'=> $cart->id] )}}" class=" btn btn-danger btn-sm remove-product">
                         <i class="fa fa-trash-o"></i>
                       </a>
                   </td>
-                  <td class="product-line-price">{{$p->harga_paket}}</td>
+                  <td class="product-line-price">IDR {{$p->harga_paket}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -42,11 +42,11 @@
                   <td colspan="3"></td>
                   <td class="totals-item">
                       <label>Subtotal</label>
-                      <div class="totals-value" id="cart-subtotal">{{$harga_total}}</div>
+                      <div class="totals-value" id="cart-subtotal">IDR {{$harga_total}}</div>
                   </td>
                   <td class="totals-item totals-item-total">
                       <label>Grand Total</label>
-                      <div class="totals-value" id="cart-total">{{$harga_total}}</div>
+                      <div class="totals-value" id="cart-total">IDR {{$harga_total}}</div>
                       <input type="hidden" value="{{$harga_total}}" name="harga_total" id="total" >
                   </td>
               <tr>

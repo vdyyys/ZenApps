@@ -99,7 +99,7 @@
               </a>
           </div>
           <div class="col-md-2 col-sm-4" data-wow-duration="1.4s">
-              <a href="/kategori/katering">
+              <a href="/kategori/catering">
                   <div class="box">
                       <div class="icon-md" style="background: rgb(193, 23, 23, .5); border-radius:50%">
                         <img src="img/icon/ico-05.svg" style="color:white" alt="">
@@ -141,7 +141,7 @@
                     @endforeach
                   </div>
                     <br><br>
-                    <a href="/eo" class="btn btn-outline-danger">Lihat Semua</a>
+                    <a href="/eo" class="btn btn-outline-danger">Lihat Semua >></a>
                 </div>
               </div>
           </div>
