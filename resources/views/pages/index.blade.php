@@ -141,6 +141,7 @@
                     @endforeach
                   </div>
                     <br><br>
+                    <a href="/eo" class="btn btn-outline-danger">Lihat Semua</a>
                 </div>
               </div>
           </div>
